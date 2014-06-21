@@ -118,8 +118,6 @@ requests based of off the critism of the reviewer. Once the reviewer, or
 reviewer(s) are satisfied, the PR is accepted, and the newest version of the
 code becomes the baseline.
 
-<Matt's portion on continuous integration.>
-
 Dev guide/Style guide
 API documentation
 User's guide
@@ -130,6 +128,116 @@ VnV warnings.
 
 The reviewing V\%V warnings 
 V\&V is both a process and collection of documentation. We follow the practice daily. We won't remove import gaurds until all documentation is preceent.
+
+\subsection{Nightly Testing and Continuous Integration} 
+
+In addition to human verification via pull request code review, the PyNE
+workflow includes both nightly testing and Continuous Integration (CI) to
+guarantee that the code base is consistently and constantly tested and
+validated. It is important to maintain confidence with the current version of
+the updated code base being actively developed. PyNE uses a branching
+development strategy, where the \textit{develop} branch corresponds to the
+actively developed and updated code base.
+
+The practice of Continuous Integration is a well known software engineering
+practice first conceived by Beck and Jefferies \cite{beck1998extreme} that
+espouses updating shared code bases in a rapid manner in order streamline the
+shared development process. A key compenent of modern CI approaches is the
+automated building and testing of a code base upon reception of a proposed
+change (i.e., a patch). For each proposed patch, the entire patched code base is
+built on one or more platforms (e.g., a flavor of Linux, a Mac Operating System
+(OS), or a Windows OS), and some number of unit, integration, and regression
+tests are executed. The quantity of tests run with each patch submission is
+dependent on the amount of time required for their execution, allowing for
+relatively quick knowlege of success or failure. The proposed patch is then only
+accepted if building and testing passes on all supported platforms and the
+reviewer is content with both the patch's style and content. PyNE enforces a CI
+approach for any patch that is proposed to be merged into the \textit{develop}
+branch.
+
+While CI is designed to streamline the integration process, nightly testing is a
+complimentary tool that verifies and validates the code base once each 24-hour
+period. Each nightly test is run on one or more platforms. On a clean version of
+each platform, all dependencies are installed, and the entire code base is built
+and installed. All unit, integration, and regression tests are then run. A
+common practice among software projects is to update all supported develop
+binaries after a successful nightly build and test execution
+
+\subsubsection{PyNE's Implementation}
+
+PyNE utilizes the Build and Test Lab (BaTLab) \cite{batlab_2014} as its general
+building and testing service. BaTLab provides the basic tools required to
+install a project and its dependencies, test a project, and return any built
+products. While PyNE builds and tests both the nightly builds and CI using
+Ubuntu 12(.04) and MacOS 10.8, supports all of the following platforms:
+
+\begin{table}[ht]
+  \begin{center}
+    \caption{\label{tab::batlab}Build and testing platforms supported by BaTLab. 
+      Those utilized by PyNE are denoted with an asterix (*).}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Platform & x86 Arch & Version \\
+    \hline
+    \multirow{2}{*}{Debain} 
+    & \multirow{3}{*}{32-bit} & 5.0 \\ & & 6.0 \\ & & 7.0 \\ 
+    \cline{2-3}
+    & \multirow{1}{*}{64-bit} & 6.0 \\
+    \hline
+    \multirow{1}{*}{Fedora} 
+    & \multirow{3}{*}{64-bit} & 16 \\ & & 17 \\ & & 18 \\
+    \hline
+    \multirow{1}{*}{MacOS} 
+    & \multirow{2}{*}{64-bit} & 10.7 \\ & & 10.8* \\
+    \hline
+    \multirow{2}{*}{RedHat Advanced Platform} 
+    & \multirow{2}{*}{32-bit} & 5.x \\ & & 6.x \\ 
+    \cline{2-3}
+    & \multirow{2}{*}{64-bit} & 5.x \\ & & 6.x \\
+    \hline
+    \multirow{2}{*}{Scientific Linux} 
+    & \multirow{1}{*}{32-bit} & 5.x \\ 
+    \cline{2-3}
+    & \multirow{1}{*}{64-bit} & 6.x \\
+    \hline
+    \multirow{1}{*}{Solaris} 
+    & \multirow{1}{*}{64-bit} & 5.11 \\
+    \hline
+    \multirow{1}{*}{Ubuntu} 
+    & \multirow{2}{*}{64-bit} & 10 \\ & & 12* \\
+    \hline
+    \multirow{2}{*}{Windows} 
+    & \multirow{1}{*}{32-bit} & XP \\ 
+    \cline{2-3}
+    & \multirow{2}{*}{64-bit} & 7 \\ & & 8 \\
+    \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+PyNE uses BaTLab's services directly for its nightly testing. Scripts were
+developed that nightly install PyNE's dependencies, download the current version
+of PyNE's \textit{develop} branch, install PyNE, and run all tests in the PyNE
+code base. Upon completion, the PyNE developer list serv is notified in case of
+any failures.
+
+The implementation of Continuous Integration is more complicated, because it
+must communicate with PyNE's repository management service, GitHub, and a build
+and test service. There exist a number of CI services, such as TravisCI
+\cite{travis_2014}; however, many have limitations in either their number and
+type of supported platforms or constrained total building and testing time. PyNE
+utilizes Polyphemus \cite{polyphemus_2014}, a plugin-based CI service that can
+connect with any supported front end (e.g. Github) and back end (e.g. BaTLab).
+
+The PyNE development team runs a Polyphemus server that utilizes its BaTLab
+scripts to build and test all proposed patches to PyNE's \textit{develop}
+branch. A patch proposal is initiated via GitHub's \textit{pull request}
+interface. The Polyphemus server is then notified, causing the launch of a
+BaTLab job. Upon completion of the BaTLab job, the server is again notified and
+updates Github with the result. Finally, active and prior jobs can be monitored
+via a continuously running \href{http://gorgus.pyne.io/dashboard}{dashboard}.
+<Matt's portion on continuous integration.>
+
 
 \section{Addressing NQA-1-2008/NQA-1a-2009}
 
@@ -197,113 +305,6 @@ style/dev guide
 Security
 600 Support software - out of scope. we don't control what other softwared users used. 
 
-\section{Nightly Testing and Continuous Integration}
-
-The PyNE project utilizes a workflow involving both nightly testing and
-Continuous Integration (CI) to guarantee that the code base is consistently and
-constantly tested and validated. While each release of PyNE is V\&V'd, it is
-important to maintain confidence with the current version of the updated code
-base being actively developed. PyNE uses a branching development strategy, where
-the \textit{staging} branch corresponds to the actively developed and updated
-code base.
-
-The practice of Continuous Integration is a well known software engineering
-practice first conceived by Beck and Jefferies \cite{beck1998extreme} that
-espouses updating shared code bases in a rapid manner in order streamline the
-shared development process. A key compenent of modern CI approaches is the
-automated building and testing of a code base upon reception of a proposed
-change (i.e., a patch). For each proposed patch, the entire patched code base is
-built on one or more platforms (e.g., a flavor of Linux, a Mac Operating System
-(OS), or a Windows OS), and some number of unit, integration, and regression
-tests are executed. The quantity of tests run with each patch submission is
-dependent on the amount of time required for their execution, allowing for
-relatively quick knowlege of success or failure. The proposed patch is then only
-accepted if building and testing passes on all supported platforms and the
-reviewer is content with both the patch's style and content. PyNE enforces a CI
-approach for any patch that is proposed to be merged into the \textit{staging}
-branch.
-
-While CI is designed to streamline the integration process, nightly testing is a
-complimentary tool that verifies and validates the code base once each 24-hour
-period. Each nightly test is run on one or more platforms. On a clean version of
-each platform, all dependencies are installed, and the entire code base is built
-and installed. All unit, integration, and regression tests are then run. A
-common practice among software projects is to update all supported develop
-binaries after a successful nightly build and test execution
-
-\subsection{PyNE's Implementation}
-
-PyNE utilizes the Build and Test Lab (BaTLab) \cite{batlab_2014} as its general
-building and testing service. BaTLab provides the basic tools required to
-install a project and its dependencies, test a project, and return any built
-products. While PyNE builds and tests both the nightly builds and CI using
-Ubuntu 12(.04) and MacOS 10.8, supports all of the following platforms:
-
-\begin{table}[ht]
-  \begin{center}
-    \caption{\label{tab::batlab}Build and testing platforms supported by BaTLab. 
-      Those utilized by PyNE are denoted with an asterix (*).}
-    \begin{tabular}{|c|c|c|}
-    \hline
-    Platform & x86 Arch & Version \\
-    \hline
-    \multirow{2}{*}{Debain} 
-    & \multirow{3}{*}{32-bit} & 5.0 \\ & & 6.0 \\ & & 7.0 \\ 
-    \cline{2-3}
-    & \multirow{1}{*}{64-bit} & 6.0 \\
-    \hline
-    \multirow{1}{*}{Fedora} 
-    & \multirow{3}{*}{64-bit} & 16 \\ & & 17 \\ & & 18 \\
-    \hline
-    \multirow{1}{*}{MacOS} 
-    & \multirow{2}{*}{64-bit} & 10.7 \\ & & 10.8* \\
-    \hline
-    \multirow{2}{*}{RedHat Advanced Platform} 
-    & \multirow{2}{*}{32-bit} & 5.x \\ & & 6.x \\ 
-    \cline{2-3}
-    & \multirow{2}{*}{64-bit} & 5.x \\ & & 6.x \\
-    \hline
-    \multirow{2}{*}{Scientific Linux} 
-    & \multirow{1}{*}{32-bit} & 5.x \\ 
-    \cline{2-3}
-    & \multirow{1}{*}{64-bit} & 6.x \\
-    \hline
-    \multirow{1}{*}{Solaris} 
-    & \multirow{1}{*}{64-bit} & 5.11 \\
-    \hline
-    \multirow{1}{*}{Ubuntu} 
-    & \multirow{2}{*}{64-bit} & 10 \\ & & 12* \\
-    \hline
-    \multirow{2}{*}{Windows} 
-    & \multirow{1}{*}{32-bit} & XP \\ 
-    \cline{2-3}
-    & \multirow{2}{*}{64-bit} & 7 \\ & & 8 \\
-    \hline
-    \end{tabular}
-  \end{center}
-\end{table}
-
-PyNE uses BaTLab's services directly for its nightly testing. Scripts were
-developed that nightly install PyNE's dependencies, download the current version
-of PyNE's \textit{staging} branch, install PyNE, and run all tests in the PyNE
-code base. Upon completion, the PyNE developer list serv is notified in case of
-any failures.
-
-The implementation of Continuous Integration is more complicated, because it
-must communicate with PyNE's repository management service, GitHub, and a build
-and test service. There exist a number of CI services, such as TravisCI
-\cite{travis_2014}; however, many have limitations in either their number and
-type of supported platforms or constrained total building and testing time. PyNE
-utilizes Polyphemus \cite{polyphemus_2014}, a plugin-based CI service that can
-connect with any supported front end (e.g. Github) and back end (e.g. BaTLab).
-
-The PyNE development team runs a Polyphemus server that utilizes its BaTLab
-scripts to build and test all proposed patches to PyNE's \textit{staging}
-branch. A patch proposal is initiated via GitHub's \textit{pull request}
-interface. The Polyphemus server is then notified, causing the launch of a
-BaTLab job. Upon completion of the BaTLab job, the server is again notified and
-updates Github with the result. Finally, active and prior jobs can be monitored
-via a continuously running \href{http://gorgus.pyne.io/dashboard}{dashboard}.
 
 \section{Conclusion}
 
