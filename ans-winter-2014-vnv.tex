@@ -6,7 +6,7 @@
 \usepackage{tabls}
 \usepackage{hyperref}
 \hypersetup{breaklinks=true, linkcolor=black, citecolor=black,
-  urlcolor=black, colorlinks=true, pdftitle={PyNE Progress Report}}
+  urlcolor=black, colorlinks=true, pdftitle={PyNE Verification and Validation}}
 \usepackage{listings}
 \usepackage{booktabs}
 %
@@ -34,12 +34,12 @@
 
 
 
-\title{ASME NQA-1-2008 Verfication and Validation of the PyNE Open-Source Nuclear Engineering Toolkit}
+\title{Verfication and Validation of the PyNE Open-Source Nuclear Engineering Toolkit}
 
 \author{Elliott~Biondo$^{1}$, Anthony~Scopatz$^{1}$, Matthew Gidden$^{1}$, Rachel Slaybaugh$^{2}$}
 
 \institute{
-\and $^{1}$ The University of Wisconsin-Madison, 1415 Engineering Drive, Madison, WI 53706\\
+\and $^{1}$ The University of Wisconsin-Madison, 1500 Engineering Drive, Madison, WI 53706\\
 \and $^{2}$ The University of California, Berkeley, 2521 Hearst Ave, Berkeley, CA 94709 \\
 }
 
@@ -54,19 +54,45 @@
 
 \section{Introduction}
 
-PyNE (formally Python for Nuclear Engineering)
+PyNE (formally Python for Nuclear Engineering) is a transinstitutional, open
+source project consisting of a collection of computational tools pertinent to
+nuclear engineering analysis and simulations. The capabilities of PyNE include
+canonical nuclide and reaction naming conventions, material handling, nuclear
+data and cross-section reading, mesh operations, and physics-code-specific
+input and output parsing. Within the nuclear industry, many applications
+require software to that meets the quality assurance (QA) criteria set forth by
+the U.S. Nuclear Regulatory Commission (NRC). The NRC endorses the American
+Society of Mechanical Engineers (ASME) NQA-1-2008 regulatory standard
+\emph{Quality Assurance Requirements for Nuclear Facility Applications} (Parts
+I and II) \cite{nrc} with the NQA-1a-2008 addendum \cite{add} for the design
+and construction licensing phases of nuclear power plants and fuel reprocessing
+facilities \cite{nrc}. The portions of these documents pertaint to software
+development and documentation outline a software engineering development model
+that is incongruent with the community-orienteed software developement model
+adopted by PyNE, which presents novel change of bringing open-source,
+community-developed, code up to regulatory standards.
+
+<Insert Anthony's portion.>
+
+
+over 300,000 lines of code and documentation and over 700 unit tests.
+
+
+Ultimatly, PyNE is an organization that
+
+
+
 
 Be sure to note that PyNE code can only be a component of a V\&V process, which
 is ultimatly carried out by an analysist. In most cases, PyNE is ``Otherwise
 Acquired Software", which is subject to same criterion, but not all of it is
 applicable. For example, ``Operation" and ``System Software".
 
-NQA-1-2008 \cite{nqa} is endorsed by the U.S. Nuclear Regulatory Commission (NRC) \cite{nrc}.
-
-Waterfall vs. Agile
-
 
 \section{PyNE Software Development Practice}
+
+The 
+
 
 Theory manual
 Dev guide/Style guide
@@ -78,7 +104,6 @@ Verison control + Github features: issues, PR, assignment (of issue and PRs), is
 Continuous integration
 
 
-
 \section{Addressing the Criteria of NQA-1-2008}
 
 PyNE is systematic, meticulous, and downright pedantic.
@@ -88,6 +113,9 @@ This may not be obvious to the uninitaited, so this paper spells it out.
 V\&V is both a process and collection of documentation. We follow the practice daily. We won't remove import gaurds until all documentation is preceent.
 
 Part I: Requirements for Quality Assurance Programs for Nuclear Facilities
+
+No relevant additions from the 2009 Addendum.
+
 Requirement 3 of Part I is Design contronl
 Section 800 of Requirement 3 is Software Design Control 
 Paragraph (Par.) 801 describes the waterfall method:
@@ -132,11 +160,15 @@ Software engineering methods should be documented.
 
 500 Standards, Conventions, and Other Work practices. style/dev guide
 
+Security
+
 600 Support software - out of scope. we don't control what other softwared users used. 
+
 
 
 \section{Conclusion}
 
+As software development changes, requirements need to change to reflect this.
 
 \bibliographystyle{ans}
 \bibliography{refs}
