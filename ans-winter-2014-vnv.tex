@@ -54,6 +54,8 @@
 
 \section{Introduction}
 
+PyNE (formally Python for Nuclear Engineering)
+
 Be sure to note that PyNE code can only be a component of a V\&V process, which
 is ultimatly carried out by an analysist. In most cases, PyNE is ``Otherwise
 Acquired Software", which is subject to same criterion, but not all of it is
@@ -61,28 +63,79 @@ applicable. For example, ``Operation" and ``System Software".
 
 NQA-1-2008 \cite{nqa} is endorsed by the U.S. Nuclear Regulatory Commission (NRC) \cite{nrc}.
 
+Waterfall vs. Agile
+
+
+\section{PyNE Software Development Practice}
+
+Theory manual
+Dev guide/Style guide
+API documentation
+User's guide
+
+Verison control + Github features: issues, PR, assignment (of issue and PRs), issue tags
+
+Continuous integration
+
+
+
 \section{Addressing the Criteria of NQA-1-2008}
+
+PyNE is systematic, meticulous, and downright pedantic.
+This PyNE workflow as described in the dev guide is very close to V\&V. Maybe not letter for letter (which would require waterfall), but certainly in spirit! 
+This may not be obvious to the uninitaited, so this paper spells it out.
+
+V\&V is both a process and collection of documentation. We follow the practice daily. We won't remove import gaurds until all documentation is preceent.
 
 Part I: Requirements for Quality Assurance Programs for Nuclear Facilities
 Requirement 3 of Part I is Design contronl
 Section 800 of Requirement 3 is Software Design Control 
 Paragraph (Par.) 801 describes the waterfall method:
-801.1 Requirments
-801.2 Software Design
-801.3 Implimentaion
-801.4 Software Design Verification
-801.5
+801.1 Requirments - The first line of every doc string provide the purpose of the 
+801.2 Software Design - document the design of the software - API documentation
+801.3 Implementaion - use the standards an conventions of the organization - we have style guide and dev guide
+801.4 Software Design Verification - must be preformed by an individual that did not write the code  - we have pull request code reviews.
+801.5 Computer program testing - we have unit tests and CI
 
 Par. 802 Software Configuration Managment
-802.1 Configuration Identification
-802.2 Change Control
-802.3 Status Control
-
+802.1 Configuration Identification - be able to identify each revision and diff them - git version control
+802.2 Change Control - document and justify all changes - as stated in the PyNE dev guide, all changes must be made via PR. We only give push access to individualy who prove adept and consent to this responsibilty.
+802.3 Status Control - that status of each configuration (version) and documenting changes that are improved but not implimented - we have verison control and also github issues.
 
 
 Part II: Quality Assurance Requirements for Facility Applications
 Subpart 2.7: Quality Assurance Requirements for Computer Software for Nuclear Applications.
-This is ment as a suppliment to Part I Requirement 3.
+This is ment as a suppliment to Part I Requirement 3. -- In our case it is redundent, but would not necessarily be the case for all workflows.
+
+Section 200 General Requirement
+201 Documentation - baseline documents retained as record.
+202 Review  - two are required: 1) the process leading to acceptance testing, and verifying acceptance testing works. However this can be done at the same time.
+203 Software Configuration Management - documentation, programs, and support software must be controlled, as well as the process of approving and accepting changes. We version control our code and our documentation.
+204 Problem reporting and corrective action - we have github "bug" issues and a user and dev mailing list.
+
+
+
+300 Software Acquistion
+301 Procured Software and Aquired Service - does not apply, we get everything for free
+302 Otherwise Acquired Software - understand the capabilities and limitations of the software, demostrate them, instruction for use within limits, justify any exceptions to the V\&V workflow
+
+we've got a lot of dependencies -- our unit tests are there regression tests.
+
+400 Software Engineering Method
+Software engineering methods should be documented.
+- This portion may be redundent
+401 Design requirements should be traceable
+402 Software design verificaiton
+403 Implimentation
+404 Acceptance testing
+405 Operation - up to the user!
+
+500 Standards, Conventions, and Other Work practices. style/dev guide
+
+600 Support software - out of scope. we don't control what other softwared users used. 
+
+
+\section{Conclusion}
 
 
 \bibliographystyle{ans}
