@@ -68,7 +68,7 @@ Commission (NRC). The NRC endorses the American Society of Mechanical Engineers
 (ASME) NQA-1-2008 regulatory standard \emph{Quality Assurance Requirements for
 Nuclear Facility Applications} (Parts I and II) \cite{nrc} with the NQA-1a-2009
 addendum \cite{add} for the design and construction of nuclear power plants and
-fuel reprocessing facilities \cite{nrc}. Unsurprisingly, tne portions of these
+fuel reprocessing facilities \cite{nrc}. Unsurprisingly, the portions of these
 documents pertinent to software development and documentation outline a
 software engineering development model that is structured somewhat differently
 from community-oriented software development model adopted by PyNE. 
@@ -81,17 +81,20 @@ Organizations that seek to comply with NQA-1-2008/NQA-1-2009a can use any
 portion of PyNE (or code from any source for that matter) as a component of
 their design and or operations software by complying with Part II Subpart 2.7
 Par. 302 ``Otherwise Acquired Software." This section provides provisions the
-use of "... freeware ... " that "has not been previously approved under a
-program consisent with [the NQA-1 standard]." In addition, PyNE seeks to
-demarcate modules for which the developement process and documentation are
+use of "... freeware ... " 
+% Why all the dots and spaces? This looks a little funny
+that "has not been previously approved under a
+program consistent with [the NQA-1 standard]." In addition, PyNE seeks to
+demarcate modules for which the development process and documentation are
 fully compliant with such standards. As it turns out, the PyNE software
-developement practices accomplish the same goals as these standards.  When a
+development practices accomplish the same goals as these standards.  When a
 module reaches a logical point of completion, a few additional steps can be
-taken to make the module full compliant, and it can be delineated accordingly.
+taken to make the module fully compliant, and it can be delineated accordingly.
 
 This paper presents the strategy implemented by PyNE to ensure that
-open-source, community-developed, code is developed in a manor compliant with
-regulatory standards. The requirement of ASME-1-2008/ASME-1a-2009 are addressed
+open-source, community-developed code is developed in a manor compliant with
+% Is it complaint or not? We say both in this paragraph, and the previous paragraph seems to indicate not compliant...
+regulatory standards. The requirements of ASME-1-2008/ASME-1a-2009 are addressed
 explicitly. Finally the additional documentation necessary for full compliance
 is discussed. These efforts mean PyNE code can be more easily used within a
 broader subset of the nuclear engineering field.
@@ -120,7 +123,7 @@ bug fixes), a development must first make changes on his/her own version of the
 repository (fork) and issue a Github \emph{pull request}. A pull request is a
 request for changes from a developer's fork to be applied to the main
 repository. The acceptance of PR is contingent on a formal review process. A
-review submits a pull request, acompanied by a description of the changes made.
+review submits a pull request, accompanied by a description of the changes made.
 Then, another developer (who did not participate in the writing of the changes)
 reviews the changes, line-by-line, verifying the changes are consistent with
 the requesters description of the changes and compliant with the PyNE
@@ -254,7 +257,7 @@ Control" and is unrevised by the 2009 addendum. The second portion is Part II:
 Applications." The second part is meant to a supplement Part I. A revised
 edition to Subpart 2.7 appears in-full in NQA-1a-2009. The software development
 practices of PyNE can be mapped to the criterion set forth by these documents.
-The section heading below refer to pertainent items within these documents.
+The section heading below refer to pertinent items within these documents.
 
 \subsection{NQA-1-2008 Part I Requirement 3 Section 800: Software Design Control}
 
@@ -273,8 +276,8 @@ The design process suggested by Section 801 is essentially the Waterfall method,
 In PyNE, \emph{requirements} typically appear in description of changes made in
 a pull request. The \emph{software design} is found in documentation strings of
 all functions and classes, which then becomes part of the API documentation.
-The \emph{implimentation} is scruntized when pull-requested code is assess for
-conformality with the style guide. \emph{computer progream testing} is easily covered with unit testing and continuous integration.
+The \emph{implimentation} is scrutinized when pull-requested code is assessed for
+conformance with the style guide. \emph{computer progream testing} is easily covered with unit testing and continuous integration.
 
 %\begin{figure*}[htbp]
 %\centering
@@ -298,7 +301,7 @@ conformality with the style guide. \emph{computer progream testing} is easily co
 
 \subsubsection{802 Software Configuration Management}
 
-In this section describes what needs to be documented, and consists of three requirments: configuration identification, change control, and status control. Configuration identification constitutes being able uniquely identify each version of the codes, as well as determine the differences between version. Since all codes, tests, and documentation in PyNE is version control with Git, this is automatic. Change control means that changes need 
+In this section describes what needs to be documented, and consists of three requirements: configuration identification, change control, and status control. Configuration identification constitutes being able uniquely identify each version of the codes, as well as determine the differences between version. Since all codes, tests, and documentation in PyNE is version control with Git, this is automatic. Change control means that changes need 
 
 802.1 Configuration Identification - be able to identify each revision and diff them - git version control
 802.2 Change Control - document and justify all changes - as stated in the PyNE dev guide, all changes must be made via PR. We only give push access to individually who prove adept and consent to this responsibility.
@@ -343,7 +346,7 @@ Security
 
 
 \section{Compliance documentation.}
-What is the procure for removing V\%V warnings?
+What is the procure for removing V\&V warnings?
 
 
 \section{Conclusion}
