@@ -270,21 +270,21 @@ within these documents.
 The design process suggested by Section 801 is essentially the Waterfall method, which requires documentation of all of the following, described in Pars. 801.1-801.5:
 
 \begin{enumerate} 
-\item{Requirements - the scope of the capabilities implimented by the work.}
+\item{Requirements - the scope of the capabilities implemented by the work.}
 \item{Software design - the mathematical and computational methodologies employed to meet the requirements.}
-\item{Implimentaion - the standards and convections agreed upon by the organization.}
+\item{Implementation - the standards and convections agreed upon by the organization.}
 \item{Software design verification - independent confirmation that requirements are met.}
-\item{Computer program testing - comparsion of results produced by the work to expected or known results.}
+\item{Computer program testing - comparison of results produced by the work to expected or known results.}
 \end{enumerate}
 
 In PyNE, \emph{requirements} typically appear in description of changes made in
 a pull request. The \emph{software design} of features is generally documented
-within the function/class documenation strings that become part of the API
-documentation. Documentation of more sophicated methods is provided in the PyNE
-theory manual. The \emph{implemenation} is uniform throughout PyNE as described
+within the function/class documentation strings that become part of the API
+documentation. Documentation of more sophisticated methods is provided in the PyNE
+theory manual. The \emph{implementation} is uniform throughout PyNE as described
 in the user and develop guides. Pull requests constitute \emph{software design
 verification} and the extensive use of unit testing and continuous integration
-statisfies \emph{computer program testing}.
+satisfies \emph{computer program testing}.
 
 
 \subsubsection{802 Software Configuration Management}
@@ -294,14 +294,14 @@ documentation must address configuration identification, configuration change
 control, and configuration status control. Configuration identification
 requires that each version of the code can be uniquely identified and the
 difference between versions can be determined. In PyNE, all code, tests, and
-documenation is version controlled with Git which full supports this
+documentation is version controlled with Git which full supports this
 capability. Configuration change control is documentation of the changes to
 software baselines including the rational for the change and appropriate
-verfication. In PyNE, all changes are cataloged on Github in form closed pull
+verification. In PyNE, all changes are cataloged on Github in form closed pull
 request which remain on the Github website for the lifetime of the repository.
 Configuration status control requires that code can be accounted for prior to
 be incorporated into the baseline and changes that are ``proposed and approved,
-but no implimented'' are documented. This is accomplished by the fact all
+but no implemented'' are documented. This is accomplished by the fact all
 changes to the baseline come from pull requests from developer forks, which are
 version controlled in the same fashion as the baseline. In addition, Github
 provides an \emph{issues} feature, which documents pending changes.
@@ -309,9 +309,9 @@ provides an \emph{issues} feature, which documents pending changes.
 
 \subsection{NQA-1a-2009 Part II: Subpart 2.7}
 
-This critera in this subpart are explicitly states to be supplimental to that
+This criteria in this subpart are explicitly states to be supplemental to that
 of Part I. Likewise, in the case of PyNE, many of criteria in this section are
-redundent with Part I.
+redundant with Part I.
 
 \subsection{Section 200 General Requirements}
 
@@ -319,22 +319,22 @@ Sections 201-203 describe the requirements for documentation, code review, and
 software configuration management which PyNE meets by complying with Part I.
 Section 204 outlines requirement for reporting software bugs and the corrective
 action that ensues. A Github ``issue'' is created if bugs are identified, which
-automatically notifies those subscribed to the repository notications. Github
+automatically notifies those subscribed to the repository notifications. Github
 issues also provide a mechanism for assigning bug fixes to the relevant
 developer(s). 
 
 %201 Documentation - baseline documents retained as record.
 %202 Review  - two are required: 1) the process leading to acceptance testing, and verifying acceptance testing works. However this can be done at the same time.
 %203 Software Configuration Management - documentation, programs, and support software must be controlled, as well as the process of approving and accepting changes. We version control our code and our documentation.
-%204 Problem reporting and corrective action - we have GitHub ``bug" issues and a user and dev mailing list.
+%204 Problem reporting and corrective action - we have GitHub ``bug" issues and a user and developer mailing list.
 
 \subsection{300 Software Acquisition}
 
 Section 301 (Procured Software and Acquired Service) does not apply to PyNE,
 though PyNE does rely on code from other open source projects. Use of this code
-is contigent with compliance with Section 301 (Otherwise Acquired Software).
+is contingent with compliance with Section 301 (Otherwise Acquired Software).
 Within PyNE, this must be done on a case-by-case basis. Some portions of PyNE
-have no dependies, while other portions may require code from up to 9 other
+have no dependencies, while other portions may require code from up to 9 other
 sources. 
 
 % 302 Otherwise Acquired Software - understand the capabilities and limitations of the software, demonstrate them, instruction for use within limits, justify any exceptions to the V\&V workflow
@@ -343,9 +343,9 @@ sources.
 \subsection{400 Software Engineering Method}
 
 Sections 401 to 404 describes criterion related to design requirements, design
-verification, implimentation, and acceptance testing which are redundent with
-Part I in the case of PyNE. Section 405 descibes criteria for operation, which
-apply to end users, and are outside the scope of the PyNE code developement.
+verification, implementation, and acceptance testing which are redundant with
+Part I in the case of PyNE. Section 405 describes criteria for operation, which
+apply to end users, and are outside the scope of the PyNE code development.
 
 %Software engineering methods should be documented.
 %- This portion may be redundant
@@ -358,20 +358,23 @@ apply to end users, and are outside the scope of the PyNE code developement.
 \subsection{500 Standards, Conventions, and Other Work practices.}
 
 The documentation of standards, conventions, and work practices required my
-this seciton is provide in the PyNE developer's guide and PyNE style guide.
+this section is provide in the PyNE developer's guide and PyNE style guide.
 
 \subsection{600 Support Software}
 This section is also outside of the scope of PyNE, as PyNE does not control the software practices of end users.
 
+\section{Full Compliance}
 
-\section{Compliance documentation.}
+
+
 What is the procedure for removing V\&V warnings?
 
 
 \section{Conclusion}
 
-The 
 As software development changes, requirements need to change to reflect this.
+
+
 
 \bibliographystyle{ans}
 \bibliography{refs}
