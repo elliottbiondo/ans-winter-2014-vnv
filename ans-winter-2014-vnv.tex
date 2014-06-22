@@ -62,40 +62,39 @@ The capabilities of PyNE include canonical nuclide and reaction naming
 conventions, material handling, nuclear data and cross-section reading, mesh
 operations, and physics-code-specific input and output parsing. % add to this list
 
-Within the nuclear industry, many applications require software to that meets
-the quality assurance (QA) criteria set forth by the U.S. Nuclear Regulatory
+Within the nuclear industry, many applications require software that meets
+the quality assurance (QA) criteria set forth by the U.S.\ Nuclear Regulatory
 Commission (NRC). The NRC endorses the American Society of Mechanical Engineers
 (ASME) NQA-1-2008 regulatory standard \emph{Quality Assurance Requirements for
 Nuclear Facility Applications} (Parts I and II) \cite{nrc} with the NQA-1a-2009
 addendum \cite{add} for the design and construction of nuclear power plants and
-fuel reprocessing facilities \cite{nrc}. Unsurprisingly, the portions of these
-documents pertinent to software development and documentation outline a
-software engineering development model that is structured somewhat differently
-from community-oriented software development model adopted by PyNE. 
+fuel reprocessing facilities \cite{nrc}. 
+In order for PyNE to be broadly adopted by the nuclear community, it must meet these rigorous software-development standards.
+%The portions of these
+%documents pertinent to software development and documentation outline a
+%software engineering development model that is structured %somewhat differently
+%from the community-oriented software development model adopted by PyNE. 
+In this work we will discuss how the philosophy and implementation of PyNE's development can be consistent with the NQA-1 standards.
 
 \textcolor{red}{Insert Anthony's portion on different software development
 workflows e.g. waterfall, agile. The first sentence of the next paragraph needs
 up be revised for flow but the one above looks pretty solid.}
 
-Organizations that seek to comply with NQA-1-2008/NQA-1-2009a can use any
+Organizations seeking to comply with NQA-1-2008/NQA-1-2009a can use any
 portion of PyNE (or code from any source for that matter) as a component of
-their design and or operations software by complying with Part II Subpart 2.7
-Par. 302 ``Otherwise Acquired Software." This section provides provisions the
-use of "... freeware ... " 
-% Why all the dots and spaces? This looks a little funny
-that "has not been previously approved under a
-program consistent with [the NQA-1 standard]." In addition, PyNE seeks to
-demarcate modules for which the development process and documentation are
-fully compliant with such standards. As it turns out, the PyNE software
-development practices accomplish the same goals as these standards.  When a
-module reaches a logical point of completion, a few additional steps can be
-taken to make the module fully compliant, and it can be delineated accordingly.
+their design and/or operations software by complying with Part II Subpart 2.7
+Par.\ 302, ``Otherwise Acquired Software.'' This section provides provisions the
+use of ``freeware'' that ``has not been previously approved under a
+program consistent with [the NQA-1 standard].'' To facilitate its use, PyNE seeks to
+designate modules for which the development process and documentation are
+fully compliant with such standards. The general PyNE software
+development practices accomplish the same goals as these standard. When a particular
+module reaches a logical point of completion, a few additional steps are
+taken to make the module fully compliant, and this module can be labeled accordingly.
 
 This paper presents the strategy implemented by PyNE to ensure that
-open-source, community-developed code is developed in a manor compliant with
-% Is it complaint or not? We say both in this paragraph, and the previous paragraph seems to indicate not compliant...
-regulatory standards. The requirements of ASME-1-2008/ASME-1a-2009 are addressed
-explicitly. Finally the additional documentation necessary for full compliance
+open-source, community-developed code is developed in a manor compliant with regulatory standards. The requirements of ASME-1-2008/ASME-1a-2009 are addressed
+explicitly. Finally, the additional documentation necessary for full compliance
 is discussed. These efforts mean PyNE code can be more easily used within a
 broader subset of the nuclear engineering field.
 
@@ -104,19 +103,20 @@ broader subset of the nuclear engineering field.
 
 
 \section{PyNE Software Development Practices}
+% Why is there so much space around this heading and no others? And the 1st and 2nd paragraphs have an extra break when no others do
 
 The PyNE software development workflow is meticulous, systematic, and similar
 to that of prominent and well-established projects such as the Linux kernel.
-The PyNE workflow is centered around Git distributed version control software
+The PyNE workflow is centered around Git~\cite{git_2014} distributed version control software
 and additional features provided by the Github Git repository hosting service.
 The \texttt{develop} and \texttt{master} branches of this repository represent
-a software baseline: a collection of software that gone through the review and
-approval process and cannot be changed without going though the change process.
+a software baseline: a collection of software that has gone through the review and
+approval process and cannot be changed without going though an agreed-upon change process.
 All PyNE code, tests, and documentation source code are stored in a public
-reposition on Github. The PyNE website (\texttt{http://pyne.io}) is home to the
-rendered documentation, which includes a user's guide, developers guide, style
-guide, as well as application programming interface (API) documentation.
-Question about PyNE are posed on the PyNE user and develop mailing list.
+repository on Github. The PyNE website (\texttt{http://pyne.io}) is home to the
+rendered documentation, which includes a user's guide, developer's guide, style
+guide, and application programming interface (API) documentation.
+Question about PyNE are posed on the PyNE user and developer mailing list.
 
 In order to make changes (e.g. new features, documentation improvements, and
 bug fixes), a development must first make changes on his/her own version of the
@@ -346,7 +346,7 @@ Security
 
 
 \section{Compliance documentation.}
-What is the procure for removing V\&V warnings?
+What is the procedure for removing V\&V warnings?
 
 
 \section{Conclusion}
