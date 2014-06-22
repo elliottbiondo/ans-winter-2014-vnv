@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{tabls}
 \usepackage{hyperref}
+\usepackage{breakurl}
 \hypersetup{breaklinks=true, linkcolor=black, citecolor=black,
   urlcolor=black, colorlinks=true, pdftitle={PyNE Verification and Validation}}
 \usepackage{listings}
@@ -88,7 +89,7 @@ portion of PyNE (or code from any source for that matter) as a component of
 their design and/or operations software by complying with Part II Subpart 2.7
 Par.\ 302, ``Otherwise Acquired Software.'' This section provides provisions for the
 use of ``freeware'' that ``has not been previously approved under a
-program consistent with [the NQA-1 standard].'' To facilitate its use, PyNE seeks to
+program consistent with [the NQA-1 standard]'' \cite{add}. To facilitate its use, PyNE seeks to
 designate modules for which the development process and documentation are
 fully compliant with such standards. The general PyNE software
 development practices accomplish the same goals as these standard. When a particular
@@ -303,10 +304,10 @@ verification. In PyNE, all changes are cataloged on Github in form closed pull
 request which remain on the Github website for the lifetime of the repository.
 Configuration status control requires that code can be accounted for prior to
 be incorporated into the baseline and changes that are ``proposed and approved,
-but no implemented'' are documented. This is accomplished by the fact all
+but not implemented'' are documented \cite{add}. This is accomplished by the fact all
 changes to the baseline come from pull requests from developer forks, which are
 version controlled in the same fashion as the baseline. In addition, Github
-provides an \emph{issues} feature, which documents pending changes.
+provides an \emph{issue} feature, which documents pending changes.
 
 
 \subsection{NQA-1a-2009 Part II: Subpart 2.7}
@@ -378,9 +379,6 @@ documentation will be completed and import guards will be removed.
 
 \section{Conclusion}
 
-
-
-As software development changes, requirements need to change to reflect this.
 
 
 
