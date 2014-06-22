@@ -12,6 +12,7 @@
 \usepackage{multirow}
 \usepackage{array}
 \usepackage{xcolor}
+\usepackage{parskip}
 %
 
 %General Short-Cut Commands
@@ -34,6 +35,9 @@
 \advance\dimen0-0.2\ht0
 \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
 {\box0\lower0.4pt\box2}}
+
+\setlength{\parskip}{0pt plus 0mm}
+\setlength{\parindent}{15pt}
 
 \title{Verification and Validation of the PyNE Open Source Nuclear Engineering Toolkit}
 
@@ -77,8 +81,7 @@ In order for PyNE to be broadly adopted by the nuclear community, it must meet t
 In this work we will discuss how the philosophy and implementation of PyNE's development can be consistent with the NQA-1 standards.
 
 \textcolor{red}{Insert Anthony's portion on different software development
-workflows e.g. waterfall, agile. The first sentence of the next paragraph needs
-up be revised for flow but the one above looks pretty solid.}
+workflows e.g. waterfall, agile.}
 
 Organizations seeking to comply with NQA-1-2008/NQA-1-2009a can use any
 portion of PyNE (or code from any source for that matter) as a component of
@@ -99,10 +102,9 @@ addressed explicitly. Finally, the additional documentation necessary for full
 compliance is discussed. These efforts facilitate the potential deployment of
 PyNE code to a broader subset of the nuclear engineering field.
 
-%% ADD:
-% emphasis that even complying in-spirit is great!
-% Github keeps everything forever.
-
+%%% ADD:
+%% emphasis that even complying in-spirit is great!
+%% Github keeps everything forever.
 \section{PyNE Software Development Practices}
 % Why is there so much space around this heading and no others? Why do these paragraphs have an extra break when those in other sections do not?
 
@@ -365,12 +367,18 @@ This section is also outside of the scope of PyNE, as PyNE does not control the 
 
 \section{Full Compliance}
 
-
-
-What is the procedure for removing V\&V warnings?
-
+Compliance with NQA-1-2008/NQA-1a-2009 requires extensive docuumentation.
+Though the software development practices of PyNE generally satisfy the
+criterion outlined by NQA-1-2008/NQA-1a-20, formal documentation of this is
+lacking. This deficiency is acknowledged in the form of Python ``import
+warnings''. Currently, when a module of Python code from PyNE is imported by
+another script for use, the user is warned that the code is not fully
+compliant. As modules are developed to a logical point of completion, necessary
+documentation will be completed and import guards will be removed.
 
 \section{Conclusion}
+
+
 
 As software development changes, requirements need to change to reflect this.
 
