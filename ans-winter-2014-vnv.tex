@@ -35,7 +35,7 @@
 \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
 {\box0\lower0.4pt\box2}}
 
-\title{Verification and Validation of the PyNE Open-Source Nuclear Engineering Toolkit}
+\title{Verification and Validation of the PyNE Open Source Nuclear Engineering Toolkit}
 
 \author{Elliott~Biondo$^{1}$, Anthony~Scopatz$^{1}$, Matthew Gidden$^{1}$, Rachel Slaybaugh$^{2}$}
 
@@ -81,73 +81,77 @@ Organizations that seek to comply with NQA-1-2008/NQA-1-2009a can use any
 portion of PyNE (or code from any source for that matter) as a component of
 their design and or operations software by complying with Part II Subpart 2.7
 Par. 302 ``Otherwise Acquired Software." This section provides provisions the
-use of "... freeware ... " 
-% Why all the dots and spaces? This looks a little funny
-that "has not been previously approved under a
-program consistent with [the NQA-1 standard]." In addition, PyNE seeks to
-demarcate modules for which the development process and documentation are
-fully compliant with such standards. As it turns out, the PyNE software
-development practices accomplish the same goals as these standards.  When a
-module reaches a logical point of completion, a few additional steps can be
-taken to make the module fully compliant, and it can be delineated accordingly.
+use of ``freeware" that ``has not been previously approved under a program
+consistent with [the NQA-1 standard]." 
+
+In addition, PyNE seeks to demarcate modules for which the development process
+and documentation are fully compliant with such standards. As it turns out, the
+PyNE software development practices accomplish the same goals as these
+standards.  When a module reaches a logical point of completion, a few
+additional documentation steps can be taken to make the module fully compliant,
+and it can be delineated accordingly.
 
 This paper presents the strategy implemented by PyNE to ensure that
 open-source, community-developed code is developed in a manor compliant with
-% Is it complaint or not? We say both in this paragraph, and the previous paragraph seems to indicate not compliant...
-regulatory standards. The requirements of ASME-1-2008/ASME-1a-2009 are addressed
-explicitly. Finally the additional documentation necessary for full compliance
-is discussed. These efforts mean PyNE code can be more easily used within a
-broader subset of the nuclear engineering field.
+% Is it complaint or not? We say both in this paragraph, and the previous
+% paragraph seems to indicate not compliant...
+regulatory standards. The requirements of ASME-1-2008/ASME-1a-2009 are
+addressed explicitly. Finally the additional documentation necessary for full
+compliance is discussed. These efforts facilitate the potential deployment of
+PyNE code to a broader subset of the nuclear engineering field.
 
 %% ADD:
 % emphasis that even complying in-spirit is great!
-
+% Github keeps everything forever.
 
 \section{PyNE Software Development Practices}
 
 The PyNE software development workflow is meticulous, systematic, and similar
 to that of prominent and well-established projects such as the Linux kernel.
 The PyNE workflow is centered around Git distributed version control software
-and additional features provided by the Github Git repository hosting service.
-The \texttt{develop} and \texttt{master} branches of this repository represent
-a software baseline: a collection of software that gone through the review and
-approval process and cannot be changed without going though the change process.
-All PyNE code, tests, and documentation source code are stored in a public
-reposition on Github. The PyNE website (\texttt{http://pyne.io}) is home to the
-rendered documentation, which includes a user's guide, developers guide, style
-guide, as well as application programming interface (API) documentation.
-Question about PyNE are posed on the PyNE user and develop mailing list.
+and additional features provided by the Github repository hosting service.  The
+\texttt{develop} and \texttt{master} branches of this repository represent a
+software baseline: a collection of software that has gone through the review
+and approval process and cannot be changed without going though the change
+process.  All PyNE code, tests, and documentation source code are stored in a
+public repository on Github. The PyNE website (\texttt{http://pyne.io}) is home
+to the rendered documentation, which includes a user guide, developer guide,
+style guide, theory manual, as well as application programming interface (API)
+documentation.  Questions about PyNE are posed on the PyNE user and develop
+mailing lists.
 
 In order to make changes (e.g. new features, documentation improvements, and
-bug fixes), a development must first make changes on his/her own version of the
+bug fixes), a developer must first make changes on his/her own version of the
 repository (fork) and issue a Github \emph{pull request}. A pull request is a
 request for changes from a developer's fork to be applied to the main
-repository. The acceptance of PR is contingent on a formal review process. A
-review submits a pull request, accompanied by a description of the changes made.
-Then, another developer (who did not participate in the writing of the changes)
-reviews the changes, line-by-line, verifying the changes are consistent with
-the requesters description of the changes and compliant with the PyNE
-developer's guide and the PyNE Style guide. In addition, the reviewer must
-ensure that that all unit tests pass (there are more than 700), and that
-additional features implemented by the PR are matches with additional unit
-tests. Pull requests are generally iterative processes were requesters update
-requests based of off the criticism of the reviewer. Once the reviewer, or
-reviewer(s) are satisfied, the PR is accepted, and the newest version of the
-code becomes the baseline.
+repository. The acceptance of PR is contingent upon a formal review process. A
+review submits a pull request, accompanied by a description of the changes
+made.  Then, another developer (who did not participate in the writing of the
+changes) reviews the changes, line-by-line, verifying the changes are
+consistent with the requesters description of the changes and are compliant
+with the PyNE developer guide and the PyNE style guide. In addition, the
+reviewer must ensure that that all unit tests pass (there are more than 700),
+and that additional features implemented by the PR are matched with additional
+unit tests. Pull requests are generally iterative processes were requesters
+update requests based of off the criticism of the reviewer. Once the reviewer,
+or reviewer(s) are satisfied, the new changes are applied to the main
+repository, creating a new baseline.
+
+% refer to changes as a "patch" as Matt does?
 
 %300,000 lines of code and 700 unit tests
 
 \subsection{Nightly Testing and Continuous Integration} 
 
-In addition to human verification via pull request code review, the PyNE
+In addition to human verification by code review, the PyNE
 workflow includes both nightly testing and Continuous Integration (CI) to
-guarantee that the code base is consistently and constantly tested and
-validated. It is important to maintain confidence with the current version of
+guarantee that the code base is consistently and constantly tested.
+It is important to maintain confidence with the current version of
 the updated code base being actively developed. PyNE uses a branching
 development strategy, where the \textit{develop} branch corresponds to the
 actively developed and updated code base.
 
-The practice of Continuous Integration is a well known software engineering
+The practice of Continuous Integration is a well-known software engineering
 practice first conceived by Beck and Jefferies \cite{beck1998extreme} that
 espouses updating shared code bases in a rapid manner in order streamline the
 shared development process. A key component of modern CI approaches is the
@@ -169,7 +173,7 @@ period. Each nightly test is run on one or more platforms. On a clean version of
 each platform, all dependencies are installed, and the entire code base is built
 and installed. All unit, integration, and regression tests are then run. A
 common practice among software projects is to update all supported develop
-binaries after a successful nightly build and test execution
+binaries after a successful nightly build and test execution.
 
 \subsubsection{PyNE's Implementation}
 
@@ -177,7 +181,7 @@ PyNE utilizes the Build and Test Lab (BaTLab) \cite{batlab_2014} as its general
 building and testing service. BaTLab provides the basic tools required to
 install a project and its dependencies, test a project, and return any built
 products. While PyNE builds and tests both the nightly builds and CI using
-Ubuntu 12(.04) and MacOS 10.8, supports all of the following platforms:
+Ubuntu 12.04 and MacOS 10.8, supports all of the following platforms:
 
 \begin{table}[ht]
   \begin{center}
@@ -224,7 +228,7 @@ Ubuntu 12(.04) and MacOS 10.8, supports all of the following platforms:
 \end{table}
 
 PyNE uses BaTLab's services directly for its nightly testing. Scripts were
-developed that nightly install PyNE's dependencies, download the current version
+developed that each night install PyNE's dependencies, download the current version
 of PyNE's \textit{develop} branch, install PyNE, and run all tests in the PyNE
 code base. Upon completion, the PyNE developer mailing list is notified in case of
 any failures.
@@ -252,56 +256,44 @@ NQA-1-2008/NQA-1a-2009 contain two sections pertinent to nuclear engineering
 software development. In Part I: ``Requirements for Quality Assurance Programs
 for Nuclear Facilities," Requirement 3 Section 800 addresses ``Software Design
 Control" and is unrevised by the 2009 addendum. The second portion is Part II:
-"Quality Assurance Requirements for Facility Applications", Subpart 2.7:
+``Quality Assurance Requirements for Facility Applications", Subpart 2.7:
 ``Quality Assurance Requirements for Computer Software for Nuclear
-Applications." The second part is meant to a supplement Part I. A revised
-edition to Subpart 2.7 appears in-full in NQA-1a-2009. The software development
-practices of PyNE can be mapped to the criterion set forth by these documents.
-The section heading below refer to pertinent items within these documents.
+Applications." A revised edition to Subpart 2.7 appears in-full in NQA-1a-2009.
+The software development practices of PyNE can be mapped to the criterion set
+forth by these documents.  The section heading below refer to pertinent items
+within these documents.
 
 \subsection{NQA-1-2008 Part I Requirement 3 Section 800: Software Design Control}
 
 \subsubsection{801 Design Process}
 
 % This portion is written presuming Anthony as already is described the Waterfall method.
-The design process suggested by Section 801 is essentially the Waterfall method, which requires documentation of, following, described in Pars. 801.1-801.5:
+The design process suggested by Section 801 is essentially the Waterfall method, which requires documentation of all of the following, described in Pars. 801.1-801.5:
+
 \begin{enumerate} 
-\item{Requirements}
-\item{Software Design}
-\item{Implimentaion}
-\item{Software Design Verification}
-\item{Computer Program Testing}
+\item{Requirements - the scope of the capabilities implimented by the work.}
+\item{Software design - the mathematical and computational methodologies employed to meet the requirements.}
+\item{Implimentaion - the standards and convections agreed upon by the organization.}
+\item{Software design verification - independent confirmation that requirements are met.}
+\item{Computer program testing - comparsion of results produced by the work to expected or known results.}
 \end{enumerate}
 
 In PyNE, \emph{requirements} typically appear in description of changes made in
-a pull request. The \emph{software design} is found in documentation strings of
-all functions and classes, which then becomes part of the API documentation.
-The \emph{implimentation} is scrutinized when pull-requested code is assessed for
-conformance with the style guide. \emph{computer progream testing} is easily covered with unit testing and continuous integration.
-
-%\begin{figure*}[htbp]
-%\centering
-%\begin{tabular}{ | l  | p{5cmm} | p{5cm} |}
-%\hline
-%\hline
-%Requirements & blash & The first line of every doc string provide the purpose of the \\
-%\hline
-%Software Design & document the design of the software & API documentation\\
-%\hline
-%Implementation & use the standards an conventions of the organization & we have style guide and dev guide \\
-%\hline
-%Software Design Verification & must be performed by an individual that did not write the code  & we have pull request code reviews \\
-%\hline
-%Computer program testing & tests & we have unit tests and CI\\
-%\hline
-%\end{tabular}
-%\end{figure*}
-
+a pull request. The \emph{software design} of features is generally documented
+within the function/class documenation strings that become part of the API
+documentation. Documentation of more sophicated methods is provided in the PyNE
+theory manual. The \emph{implemenation} is uniform throughout PyNE as described
+in the user and develop guides. Pull requests constitute \emph{software design
+verification} and the extensive use of unit testing and continue integration
+statisfies \emph{computer program testing}.
 
 
 \subsubsection{802 Software Configuration Management}
 
-In this section describes what needs to be documented, and consists of three requirements: configuration identification, change control, and status control. Configuration identification constitutes being able uniquely identify each version of the codes, as well as determine the differences between version. Since all codes, tests, and documentation in PyNE is version control with Git, this is automatic. Change control means that changes need 
+In addition documenting the steps of the Waterfall method, additional documentaiton must describe 
+
+
+consists of three requirements: configuration identification, change control, and status control. Configuration identification constitutes being able uniquely identify each version of the codes, as well as determine the differences between version. Since all codes, tests, and documentation in PyNE is version control with Git, this is automatic. Change control means that changes need 
 
 802.1 Configuration Identification - be able to identify each revision and diff them - git version control
 802.2 Change Control - document and justify all changes - as stated in the PyNE dev guide, all changes must be made via PR. We only give push access to individually who prove adept and consent to this responsibility.
@@ -313,12 +305,14 @@ This sections
 
 \subsection{NQA-1a-2009 Part II: Subpart 2.7}
 
+The portion of is explicitly stated to be a supliment to Part I -- redunent.
+
 \subsection{Section 200 General Requirements}
 
 201 Documentation - baseline documents retained as record.
 202 Review  - two are required: 1) the process leading to acceptance testing, and verifying acceptance testing works. However this can be done at the same time.
 203 Software Configuration Management - documentation, programs, and support software must be controlled, as well as the process of approving and accepting changes. We version control our code and our documentation.
-204 Problem reporting and corrective action - we have GitHub "bug" issues and a user and dev mailing list.
+204 Problem reporting and corrective action - we have GitHub ``bug" issues and a user and dev mailing list.
 
 \subsection{300 Software Acquisition}
 301 Procured Software and Acquired Service - does not apply, we get everything for free
@@ -346,7 +340,7 @@ Security
 
 
 \section{Compliance documentation.}
-What is the procure for removing V\&V warnings?
+What is the procedure for removing V\&V warnings?
 
 
 \section{Conclusion}
