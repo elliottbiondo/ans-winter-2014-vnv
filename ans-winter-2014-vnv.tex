@@ -35,12 +35,22 @@
 
 \section{Introduction}
 
-PyNE \cite{scopatz_pyne} (formerly Python for Nuclear Engineering) is a
+% I am not sure we want to say this here, because, as I say, NQA-1 does provide provision for using codes that were not developed using these standards.
+In order for PyNE \cite{scopatz_pyne} to be broadly adopted by the nuclear community, 
+it must meet rigorous software-development standards.
+%The portions of these
+%documents pertinent to software development and documentation outline a
+%software engineering development model that is structured %somewhat differently
+%from the community-oriented software development model adopted by PyNE. 
+In this work we will discuss how the philosophy and implementation 
+of PyNE's development practices are consistent with the NQA-1 standards.
+
+PyNE is a
 transinstitutional, open source project consisting of a collection of
 computational tools pertinent to nuclear engineering analysis and simulations.
 The capabilities of PyNE include canonical nuclide and reaction naming
 conventions, material handling, nuclear data and cross-section reading, mesh
-operations, and physics-code-specific input and output parsing. % add to this list
+operations, and physics-code-specific input and output capabilities. 
 
 Within the nuclear industry, many applications require software that meets
 the quality assurance (QA) criteria set forth by the U.S.\ Nuclear Regulatory
@@ -50,21 +60,34 @@ Nuclear Facility Applications} (Parts I and II) \cite{nrc} with the NQA-1a-2009
 addendum \cite{add} for the design and construction of nuclear power plants and
 fuel reprocessing facilities \cite{nrc}. 
 
-%%% BEGIN NEEDS WORK
+The traditional and historical software development workflow is known as the 
+\emph{waterfall} model \cite{waterfall}. This strategy feature several stages:
+specification, design, implementation, verification, and maintenence.  Each of
+these stages is concieved of as flowing into the next stage.  Each stage must be 
+completed and reviewed before continuing on to the next stage. The waterfall 
+model has been shown to be very effective for large, technical projects.
 
-% I am not sure we want to say this here, because, as I say, NQA-1 does provide provision for using codes that were not developed using these standards.
-In order for PyNE to be broadly adopted by the nuclear community, it must meet these rigorous software-development standards.
-%The portions of these
-%documents pertinent to software development and documentation outline a
-%software engineering development model that is structured %somewhat differently
-%from the community-oriented software development model adopted by PyNE. 
-In this work we will discuss how the philosophy and implementation of PyNE's development can be consistent with the NQA-1 standards.
+However, with the adavent of distributed version control and physically 
+and organizationally disperate development teams came the rise in popularity
+of \emph{agile} development \cite{larman2004agile}. The overarching principle 
+of the agile strategey is to have a short iteration cycle so that the software
+may evolve and respond to changing needs and use cases over time.
+In practice, the agile method is a series of paralllel waterfalls for every issue
+or requirement that arrises. All code must be designed, written, reviewed, 
+tested, and verified. But this process happens for all subsets of the code base
+individiually, rather than with the waterfall model where the review 
+process happens over the entire code base as an aggregate entity.
 
-\textcolor{red}{Insert Anthony's portion on different software development
-workflows e.g. waterfall, agile.}
-
-%%%% END NEEDS WORKS
-
+Agile methods are useful for teams that are small, physically seperate, at
+different institutions, or unfunded. This is because the overhead is much 
+less than for waterfall strategies.  Agile mechanisms allow for developer
+to focus on what it interesting or useful to them on an as-needed basis.
+Toolkits or library projects (rather than simulators or user interfaces) are 
+particularly ripe for agile development. A well designed toolkit should be 
+modular in nature which allows for parallel streams of development.  
+PyNE follows an agile development strategy as much out of necessity as it
+is a ideological fit.  Regardless of the development stratgey, nuclear code
+must adhere to the highest standards of quality.
 
 Organizations seeking to comply with NQA-1-2008/NQA-1-2009a can use any portion
 of PyNE (or code from any source for that matter) as a component of their
