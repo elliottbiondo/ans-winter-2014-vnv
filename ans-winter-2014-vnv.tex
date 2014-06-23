@@ -46,7 +46,7 @@ In this work we will discuss how the philosophy and implementation
 of PyNE's development practices are consistent with the NQA-1 standards.
 
 PyNE is a
-transinstitutional, open source project consisting of a collection of
+trans-institutional, open source project consisting of a collection of
 computational tools pertinent to nuclear engineering analysis and simulations.
 The capabilities of PyNE include canonical nuclide and reaction naming
 conventions, material handling, nuclear data and cross-section reading, mesh
@@ -62,23 +62,23 @@ fuel reprocessing facilities \cite{nrc}.
 
 The traditional and historical software development workflow is known as the 
 \emph{waterfall} model \cite{waterfall}. This strategy feature several stages:
-specification, design, implementation, verification, and maintenence.  Each of
-these stages is concieved of as flowing into the next stage.  Each stage must be 
+specification, design, implementation, verification, and maintenance.  Each of
+these stages is conceived of as flowing into the next stage.  Each stage must be 
 completed and reviewed before continuing on to the next stage. The waterfall 
 model has been shown to be very effective for large, technical projects.
 
-However, with the adavent of distributed version control and physically 
-and organizationally disperate development teams came the rise in popularity
+However, with the advent of distributed version control and physically 
+and organizationally disparate development teams came the rise in popularity
 of \emph{agile} development \cite{larman2004agile}. The overarching principle 
-of the agile strategey is to have a short iteration cycle so that the software
+of the agile strategy is to have a short iteration cycle so that the software
 may evolve and respond to changing needs and use cases over time.
-In practice, the agile method is a series of paralllel waterfalls for every issue
-or requirement that arrises. All code must be designed, written, reviewed, 
+In practice, the agile method is a series of parallel waterfalls for every issue
+or requirement that arises. All code must be designed, written, reviewed, 
 tested, and verified. But this process happens for all subsets of the code base
-individiually, rather than with the waterfall model where the review 
+individually, rather than with the waterfall model where the review 
 process happens over the entire code base as an aggregate entity.
 
-Agile methods are useful for teams that are small, physically seperate, at
+Agile methods are useful for teams that are small, physically separate, at
 different institutions, or unfunded. This is because the overhead is much 
 less than for waterfall strategies.  Agile mechanisms allow for developer
 to focus on what it interesting or useful to them on an as-needed basis.
@@ -86,7 +86,7 @@ Toolkits or library projects (rather than simulators or user interfaces) are
 particularly ripe for agile development. A well designed toolkit should be 
 modular in nature which allows for parallel streams of development.  
 PyNE follows an agile development strategy as much out of necessity as it
-is a ideological fit.  Regardless of the development stratgey, nuclear code
+is a ideological fit.  Regardless of the development strategy, nuclear code
 must adhere to the highest standards of quality.
 
 Organizations seeking to comply with NQA-1-2008/NQA-1-2009a can use any portion
