@@ -316,10 +316,10 @@ of Part I. Likewise, PyNE's strategy for complying with Part I Requirement 3 wil
 
 \subsection{Section 200 General Requirements}
 
-Sections 201-203 describe the requirements for documentation, code review, and
-software configuration management which PyNE meets by complying with Part I.
-Section 204 outlines requirement for reporting software bugs and the corrective
-action that ensues. A Github ``issue'' is created if bugs are identified, which
+Sections 201-203 describe requirements for documentation, code review, and
+software configuration management. Using PyNE's strategy, these requirements are redundent with those described in Part I.
+Section 204 outlines requirements for reporting software bugs and the corrective
+action that ensues. A Github \emph{issue} is created if bugs are identified, which
 automatically notifies the development team. Github
 issues also provide a mechanism for assigning bug fixes to the relevant
 developer(s). 
@@ -333,9 +333,9 @@ developer(s).
 
 Section 301 (Procured Software and Acquired Service) does not apply to PyNE,
 though PyNE does rely on code from other open source projects. Use of this code
-is contingent with compliance with Section 301 (Otherwise Acquired Software).
+is contingent with compliance with Section 302 (Otherwise Acquired Software).
 Within PyNE, this must be done on a case-by-case basis. Some portions of PyNE
-have no dependencies, while other portions may require code from a multitude of
+have no dependencies, while other portions may require code---in varying capacity---from a multitude of
 sources of various project sizes and type.
 
 % 302 Otherwise Acquired Software - understand the capabilities and limitations of the software, demonstrate them, instruction for use within limits, justify any exceptions to the V\&V workflow
@@ -343,10 +343,12 @@ sources of various project sizes and type.
 
 \subsection{400 Software Engineering Method}
 
-Sections 401 to 404 describes criterion related to design requirements, design
-verification, implementation, and acceptance testing which are redundant with
-Part I in the case of PyNE. Section 405 describes criteria for operation, which
-applies to end users, and are outside the scope of the PyNE code development.
+Sections 401 to 404 describes describe design requirements, design
+verification, implementation, and acceptance testing; consistent with the
+waterfall method. NQA-1a-2009 revises this section to include security
+requirements. Security requirements, and also the requirements in Section 405:
+Operation, are the responsibility of the end-user and are outside the scope of
+PyNE.
 
 %Software engineering methods should be documented.
 %- This portion may be redundant
@@ -362,20 +364,18 @@ The documentation of standards, conventions, and work practices required my
 this section is provided in the PyNE developer's guide and PyNE style guide.
 
 \subsection{600 Support Software}
-
-This section is also outside of the scope of PyNE, as PyNE does not control the
-software practices of end users.
+This section covers software tool and system software, which is also the responsibility of the end-user.
 
 \section{Full Compliance}
 
 Compliance with NQA-1-2008/NQA-1a-2009 requires extensive documentation.
 Though the software development practices of PyNE generally satisfy the
 criterion outlined by NQA-1-2008/NQA-1a-2009, formal documentation of this is
-lacking. This deficiency is acknowledged in the form of Python ``import
-warnings''. Currently, when a module of Python code from PyNE is imported by
+lacking in some cases. This deficiency is acknowledged in the form of Python \emph{import
+warnings}. Currently, when a module of Python code from PyNE is imported by
 another script for use, the user is warned that the code is not fully
 compliant. As modules are developed to a logical point of completion, necessary
-documentation will be completed and import guards will be removed. 
+documentation will be completed and import warning will be removed. 
 This documentation will itemize the requirements of NQA-1-2008/NQA-1a-2009,
 explain how they were met, and will then require independent approval from a
 member of the PyNE development team.
@@ -384,19 +384,18 @@ member of the PyNE development team.
 
 The community-based software development model adopted by PyNE does not
 preclude its use in applications that require ASME NQA-1-2008/NQA-1a-2009
-compliance, which provides provision for such software. In addition, effort is
-being put into making PyNE fully compliant with these stringent standards.
+compliance, which provides provision for such software. In addition, PyNE is working towards full compliance with these standards
 Through the use of version control, pull requests, unit testing, nightly builds, and
 continuous integration, PyNE software development practices accomplish the
 goals of meticulous record-keeping, peer-review, validation, and accountability
 demanded by the industry standard. Additional documentation of these practices for
 individual modules within PyNE will make them fully compliant. Whether or not
-user's require official compliance, these efforts ensure the accuracy and
+PyNE user's require official compliance, these efforts ensure the accuracy and
 accountability of the PyNE code base.
 
 \section{Acknowledgements}
 
-We would like to thank Nicholas Touran for valuable guidance he provided, which
+We would like to thank Nicholas Touran for the valuable guidance he provided, which
 sparked the efforts described in this paper.
 
 
