@@ -135,7 +135,7 @@ In the formal review process, another developer who did not participate in the w
 reviews the changes line-by-line, verifying the changes are (1) consistent with
 the requester's description and (2) compliant with the PyNE
 developer's guide and style guide. In addition, the reviewer must
-ensure that all unit tests pass (there are more than 700) and that
+ensure that all unit tests pass (there a and that
 any new features implemented in the pull request are supported by appropriate unit
 tests. Continuous Integration (CI)---explained below---assists in this process.
 The review process tends to be iterative, where requesters update their pull
@@ -173,8 +173,8 @@ While CI is designed to streamline the integration process, nightly testing is a
 complementary tool that tests the code base once each 24-hour
 period. Each nightly test is run on one or more platforms. On a clean version of
 each platform, all dependencies are installed, and the entire code base is built
-and installed. All unit, integration, and regression tests are then run. A
-common practice among software projects is to update all supported \texttt{develop}
+and installed. All unit, integration, and regression tests are then run. 
+A common practice among software projects is to update all supported \texttt{develop}
 binaries after a successful nightly build and test execution.
 
 \subsubsection{PyNE's Implementation}
@@ -183,51 +183,51 @@ PyNE utilizes the Build and Test Lab (BaTLab) \cite{batlab_2014} as its general
 building and testing service. BaTLab provides the basic tools required to
 install a project and its dependencies, test a project, and return any built
 products. PyNE builds and tests both the nightly builds and CI using
-Ubuntu 12.04 and MacOS 10.8. Batlab supports many other platforms which could be utilized by PyNE:
+Ubuntu 12.04 and MacOS 10.8 and Batlab supports many other platforms which could be utilized by PyNE.
 
-\begin{table}[ht]
-  \begin{center}
-    \caption{\label{tab::batlab}Build and testing platforms supported by BaTLab. 
-      Those utilized by PyNE are denoted with an asterisk (*).}
-    \begin{tabular}{|c|c|c|}
-    \hline
-    Platform & x86 Arch & Version \\
-    \hline
-    \multirow{2}{*}{Debian} 
-    & \multirow{3}{*}{32-bit} & 5.0 \\ & & 6.0 \\ & & 7.0 \\ 
-    \cline{2-3}
-    & \multirow{1}{*}{64-bit} & 6.0 \\
-    \hline
-    \multirow{1}{*}{Fedora} 
-    & \multirow{3}{*}{64-bit} & 16 \\ & & 17 \\ & & 18 \\
-    \hline
-    \multirow{1}{*}{MacOS} 
-    & \multirow{2}{*}{64-bit} & 10.7 \\ & & 10.8* \\
-    \hline
-    \multirow{2}{*}{RedHat Advanced Platform} 
-    & \multirow{2}{*}{32-bit} & 5.x \\ & & 6.x \\ 
-    \cline{2-3}
-    & \multirow{2}{*}{64-bit} & 5.x \\ & & 6.x \\
-    \hline
-    \multirow{2}{*}{Scientific Linux} 
-    & \multirow{1}{*}{32-bit} & 5.x \\ 
-    \cline{2-3}
-    & \multirow{1}{*}{64-bit} & 6.x \\
-    \hline
-    \multirow{1}{*}{Solaris} 
-    & \multirow{1}{*}{64-bit} & 5.11 \\
-    \hline
-    \multirow{1}{*}{Ubuntu} 
-    & \multirow{2}{*}{64-bit} & 10 \\ & & 12* \\
-    \hline
-    \multirow{2}{*}{Windows} 
-    & \multirow{1}{*}{32-bit} & XP \\ 
-    \cline{2-3}
-    & \multirow{2}{*}{64-bit} & 7 \\ & & 8 \\
-    \hline
-    \end{tabular}
-  \end{center}
-\end{table}
+%\begin{table}[ht]
+%  \begin{center}
+%    \caption{\label{tab::batlab}Build and testing platforms supported by BaTLab. 
+%      Those utilized by PyNE are denoted with an asterisk (*).}
+%    \begin{tabular}{|c|c|c|}
+%    \hline
+%    Platform & x86 Arch & Version \\
+%    \hline
+%    \multirow{2}{*}{Debian} 
+%    & \multirow{3}{*}{32-bit} & 5.0 \\ & & 6.0 \\ & & 7.0 \\ 
+%    \cline{2-3}
+%    & \multirow{1}{*}{64-bit} & 6.0 \\
+%    \hline
+%    \multirow{1}{*}{Fedora} 
+%    & \multirow{3}{*}{64-bit} & 16 \\ & & 17 \\ & & 18 \\
+%    \hline
+%    \multirow{1}{*}{MacOS} 
+%    & \multirow{2}{*}{64-bit} & 10.7 \\ & & 10.8* \\
+%    \hline
+%    \multirow{2}{*}{RedHat Advanced Platform} 
+%    & \multirow{2}{*}{32-bit} & 5.x \\ & & 6.x \\ 
+%    \cline{2-3}
+%    & \multirow{2}{*}{64-bit} & 5.x \\ & & 6.x \\
+%    \hline
+%    \multirow{2}{*}{Scientific Linux} 
+%    & \multirow{1}{*}{32-bit} & 5.x \\ 
+%    \cline{2-3}
+%    & \multirow{1}{*}{64-bit} & 6.x \\
+%    \hline
+%    \multirow{1}{*}{Solaris} 
+%    & \multirow{1}{*}{64-bit} & 5.11 \\
+%    \hline
+%    \multirow{1}{*}{Ubuntu} 
+%    & \multirow{2}{*}{64-bit} & 10 \\ & & 12* \\
+%    \hline
+%    \multirow{2}{*}{Windows} 
+%    & \multirow{1}{*}{32-bit} & XP \\ 
+%    \cline{2-3}
+%    & \multirow{2}{*}{64-bit} & 7 \\ & & 8 \\
+%    \hline
+%    \end{tabular}
+%  \end{center}
+%\end{table}
 
 PyNE uses BaTLab's services directly for its nightly testing. Scripts were
 developed that---each night---install PyNE's dependencies, download the current version
@@ -396,7 +396,6 @@ accountability of the PyNE code base.
 
 We would like to thank Nicholas Touran for the valuable advice he provided, which
 guided many of the efforts described in this paper.
-
 
 \bibliographystyle{ans}
 \bibliography{refs}
