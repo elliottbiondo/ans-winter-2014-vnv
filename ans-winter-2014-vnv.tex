@@ -113,7 +113,7 @@ to a broader subset of the nuclear engineering community.
 
 The PyNE software development workflow is meticulous, systematic, and similar
 to workflows of prominent and well-established projects such as the Linux kernel.
-The PyNE workflow is centered around the git~\cite{git_2014} distributed version control software
+The PyNE workflow is centered around the Git~\cite{git_2014} distributed version control software
 and additional features provided by the GitHub repository hosting service.
 The \texttt{develop} and \texttt{master} branches of this repository represent
 a software baseline: a collection of software that has gone through the review and
@@ -125,7 +125,7 @@ guide, theory manual, and application programming interface (API) documentation.
 PyNE also has user and developer mailing lists for questions, discussion, and feedback.
 
 In order to make changes (e.g.\ new features, documentation improvements, and
-bug fixes), developers must first make changes in thier own versions of the
+bug fixes), developers must first make changes in their own versions of the
 repository (a \emph{fork} in GitHub terminology) and then issue a GitHub \emph{pull
 request} accompanied by a description of the changes. A pull request
 is a request for changes from a developer's fork to be applied to the main
@@ -180,8 +180,8 @@ binaries after a successful nightly build and test execution.
 
 \subsubsection{PyNE's Implementation}
 
-PyNE utilizes the Build and Test Lab (BaTLab) \cite{batlab_2014} as it is a general
-building and testing service. BaTLab provides the basic tools required to
+PyNE utilizes the Build and Test Lab (BaTLab) \cite{batlab_2014} as its platform for 
+building and testing software. BaTLab provides the basic tools required to
 install a project and its dependencies, test a project, and return any built
 products. PyNE builds and tests both the nightly builds and CI using
 Ubuntu 12.04 and MacOS 10.8 and Batlab supports many other platforms which could be utilized by PyNE.
@@ -298,7 +298,7 @@ documentation must address \emph{configuration identification}, \emph{configurat
 control}, and \emph{configuration status control}. Configuration identification
 requires that each version of the code can be uniquely identified and the
 difference between versions can be ascertained. In PyNE, all code, tests, and
-documentation are version controlled with git which fully and automatically 
+documentation are version controlled with Git which fully and automatically 
 supports these
 capabilities. Configuration change control is documentation of the changes to
 software baselines including the rational for the change and appropriate
