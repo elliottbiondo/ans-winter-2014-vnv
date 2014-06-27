@@ -64,22 +64,22 @@ specification (or requirements), design, implementation, verification, and maint
 Each stage must be 
 completed and reviewed before continuing on to the next stage. The waterfall 
 model has been shown to be very effective for large, technical projects.
-However, with the advent of distributed version control and physically 
+However, with the advent of distributed version control as well as physically 
 and organizationally disparate development teams came the rise in popularity
 of \emph{agile} development \cite{larman2004agile}. The overarching principle 
 of the agile strategy is to have a short iteration cycle so that the software
-may evolve and respond to changing needs and use cases over time.
+may evolve and respond quickly to changing needs and use cases.
 
 In practice, the agile method is a series of parallel waterfalls for every issue
 or requirement that arises. All code must be designed, written, reviewed, 
 tested, and verified. This process happens for all subsets of the code base
-individually, as opposed to the with the waterfall model, where the review 
+individually. This stands opposed to the waterfall model where the review 
 process happens over the entire code base as an aggregate entity.
 
 Agile methods are useful for teams that are small, physically separate, at
 different institutions, or unfunded. This is because the overhead is much 
-less than required for waterfall strategies.  Agile mechanisms allow for developer
-to focus on what it interesting or useful to them on an as-needed basis.
+less than required for waterfall strategies.  Agile mechanisms allow for developers
+to focus on what is interesting or useful to them on an as-needed basis.
 Toolkits or library projects (rather than simulators or user interfaces) are 
 particularly ripe for agile development. A well designed toolkit should be 
 modular in nature which allows for parallel streams of development.  
@@ -113,35 +113,36 @@ to a broader subset of the nuclear engineering community.
 
 The PyNE software development workflow is meticulous, systematic, and similar
 to workflows of prominent and well-established projects such as the Linux kernel.
-The PyNE workflow is centered around Git~\cite{git_2014} distributed version control software
-and additional features provided by the Github repository hosting service.
+The PyNE workflow is centered around the git~\cite{git_2014} distributed version control software
+and additional features provided by the GitHub repository hosting service.
 The \texttt{develop} and \texttt{master} branches of this repository represent
 a software baseline: a collection of software that has gone through the review and
 approval process and cannot be changed without going though an agreed-upon, formal change process.
 All PyNE code, tests, and documentation are stored in a public
-repository on Github. The PyNE website (\texttt{http://pyne.io}) is home to the
+repository on GitHub. The PyNE website (\texttt{http://pyne.io}) is home to the
 rendered documentation, which includes a user's guide, developer's guide, style
 guide, theory manual, and application programming interface (API) documentation.
 PyNE also has user and developer mailing lists for questions, discussion, and feedback.
 
 In order to make changes (e.g.\ new features, documentation improvements, and
-bug fixes), a developer must first make changes in his/her own version of the
-repository (a \emph{fork} in Github terminology) and then issue a Github \emph{pull
+bug fixes), developers must first make changes in thier own versions of the
+repository (a \emph{fork} in GitHub terminology) and then issue a GitHub \emph{pull
 request} accompanied by a description of the changes. A pull request
 is a request for changes from a developer's fork to be applied to the main
-repository. The acceptance of a pull request is contingent upon a formal review process.
+repository. The acceptance of a pull request is contingent upon the
+successful completion of a formal review process.
 
 In the formal review process, another developer who did not participate in the writing of the changes
 reviews the changes line-by-line, verifying the changes are (1) consistent with
 the requester's description and (2) compliant with the PyNE
 developer's guide and style guide. In addition, the reviewer must
-ensure that all unit tests pass (there a and that
+ensure that all unit tests pass and that
 any new features implemented in the pull request are supported by appropriate unit
 tests. Continuous Integration (CI)---explained below---assists in this process.
 The review process tends to be iterative, where requesters update their pull
 requests in response to the criticism of the reviewer. Once the reviewer or
 reviewers are satisfied, the pull request is accepted, and the newest version of the
-code becomes the baseline. Record of the pull request is stored by Github for the lifetime of the repository.
+code becomes the baseline. Record of the pull request is stored by GitHub for the lifetime of the repository.
 
 \subsection{Nightly Testing and Continuous Integration} 
 
@@ -179,7 +180,7 @@ binaries after a successful nightly build and test execution.
 
 \subsubsection{PyNE's Implementation}
 
-PyNE utilizes the Build and Test Lab (BaTLab) \cite{batlab_2014} as its general
+PyNE utilizes the Build and Test Lab (BaTLab) \cite{batlab_2014} as it is a general
 building and testing service. BaTLab provides the basic tools required to
 install a project and its dependencies, test a project, and return any built
 products. PyNE builds and tests both the nightly builds and CI using
@@ -241,14 +242,14 @@ and test service. There exist a number of CI services, such as TravisCI
 \cite{travis_2014}; however, many have limitations in either their number and
 type of supported platforms or constrained total building and testing time. PyNE
 utilizes Polyphemus \cite{polyphemus_2014}, a plugin-based CI service that can
-connect with any supported front end (e.g. Github) and back end (e.g. BaTLab).
+connect with any supported front end (e.g. GitHub) and back end (e.g. BaTLab).
 
 The PyNE development team runs a Polyphemus server that utilizes its BaTLab
 scripts to build and test all proposed patches to PyNE's \texttt{develop}
 branch. A patch proposal is initiated via GitHub's pull request
 interface. The Polyphemus server is then notified, causing the launch of a
 BaTLab job. Upon completion of the BaTLab job, the server is again notified and
-updates Github with the result. Finally, active and prior jobs can be monitored
+updates GitHub with the result. Finally, active and prior jobs can be monitored
 via a continuously running \href{http://gorgus.pyne.io/dashboard}{dashboard}.
 
 
@@ -279,14 +280,15 @@ The design process suggested by Section 801 is essentially the waterfall method,
 \item{Computer program testing - comparison of results produced by the work to expected or known results.}
 \end{enumerate}
 
-In PyNE, \emph{requirements} typically appear in the description of changes made in
-a pull request. Many features of PyNE are fundamental (e.g. material mixing, reading output from a physics code), so requirements are often self-evident. 
-The \emph{software design} of features is generally documented
+In PyNE, \emph{requirements} appear in the description of changes made in
+a pull request. 
+The \emph{software design} of features is documented
 within the function/class documentation strings that become part of the API
 documentation. Documentation of more sophisticated methods can be provided in the PyNE
-theory manual. The \emph{implementation} is uniform throughout PyNE as described
-in the user's and developer's guides. Pull requests constitute \emph{software design
-verification} and the extensive use of unit testing, continuous integration, and nightly builds
+theory manual as needed. The \emph{implementation} is uniform throughout PyNE as 
+described in the user's and developer's guides. Pull requests constitute 
+\emph{software design verification} and the extensive use of unit testing, 
+continuous integration, and nightly builds
 satisfy \emph{computer program testing}.
 
 \subsubsection{802 Software Configuration Management}
@@ -296,16 +298,17 @@ documentation must address \emph{configuration identification}, \emph{configurat
 control}, and \emph{configuration status control}. Configuration identification
 requires that each version of the code can be uniquely identified and the
 difference between versions can be ascertained. In PyNE, all code, tests, and
-documentation are version controlled with Git which fully supports these
+documentation are version controlled with git which fully and automatically 
+supports these
 capabilities. Configuration change control is documentation of the changes to
 software baselines including the rational for the change and appropriate
-verification. In PyNE, all changes are cataloged on Github in form closed pull
-requests which remain on the Github website for the lifetime of the repository.
+verification. In PyNE, all changes are cataloged on GitHub in the form closed pull
+requests which remain on the GitHub website for the lifetime of the repository.
 Configuration status control requires that code can be accounted for prior to
 being incorporated into the baseline and changes that are ``proposed and approved,
 but not implemented'' are documented \cite{add}. This is accomplished by the fact that all
 changes to the baseline come from pull requests from developer forks, which are
-version controlled in the same fashion as the baseline. In addition, Github
+version controlled in the same fashion as the baseline. In addition, GitHub
 provides an \emph{issue} feature, which documents pending changes.
 
 
@@ -319,8 +322,8 @@ of Part I. Likewise, PyNE's strategy for complying with Part I Requirement 3 wil
 Sections 201-203 describe requirements for documentation, code review, and
 software configuration management. Using PyNE's strategy, these requirements are redundant with those described in Part I.
 Section 204 outlines requirements for reporting software bugs and the corrective
-action that ensues. A Github \emph{issue} is created if bugs are identified, which
-automatically notifies the development team. Github
+action that ensues. A GitHub \emph{issue} is created if bugs are identified, which
+automatically notifies the development team. GitHub
 issues also provide a mechanism for assigning bug fixes to the relevant
 developer(s). 
 
