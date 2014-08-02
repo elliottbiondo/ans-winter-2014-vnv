@@ -47,7 +47,11 @@ PyNE is a trans-institutional, open source project consisting of a collection
 of computational tools pertinent to nuclear engineering analysis and
 simulations. The capabilities of PyNE include canonical nuclide and reaction
 naming conventions, material handling, nuclear data and cross-section reading,
-mesh operations, and physics-code-specific capabilities. PyNE is cognizant of
+mesh operations, and physics-code-specific capabilities. 
+Users can utilize PyNE code as a component within their own software to simplify complex tasks
+such as radiation shielding calculations \cite{Biondo2014}.
+
+PyNE is cognizant of
 exacting regulations that apply to much of the potential user base.  Many
 applications require software that meets the quality assurance (QA) criteria
 set forth by the U.S.\ Nuclear Regulatory Commission (NRC). The NRC endorses
@@ -107,7 +111,7 @@ open source, community-developed code is written, reviewed, tested, and
 documented in a manner compliant with regulatory standards. The requirements of
 ASME-1-2008/ASME-1a-2009 are addressed explicitly. The process for declaring
 PyNE code fully compliant is discussed. These efforts make the PyNE code base suitable
-to a broader subset of the nuclear engineering community.
+to a larger subset of the nuclear engineering community.
 
 \section{PyNE Software Development Practices}
 
@@ -143,6 +147,13 @@ The review process tends to be iterative, where requesters update their pull
 requests in response to the criticism of the reviewer. Once the reviewer or
 reviewers are satisfied, the pull request is accepted, and the newest version of the
 code becomes the baseline. Record of the pull request is stored by GitHub for the lifetime of the repository.
+
+PyNE users may download the code base directly from the GitHub repository, or
+they may download a stable \emph{release} version from the PyNE website. Once a
+user downloads and installs PyNE, all unit tests can be run locally
+(with no internet connection required) to verify the installation. The user's local
+copy is unaffected by any changes to the main PyNE Git repository, unless the
+user chooses to update their installation.
 
 \subsection{Nightly Testing and Continuous Integration} 
 
@@ -302,7 +313,7 @@ documentation are version controlled with Git which fully and automatically
 supports these
 capabilities. Configuration change control is documentation of the changes to
 software baselines including the rational for the change and appropriate
-verification. In PyNE, all changes are cataloged on GitHub in the form closed pull
+verification. In PyNE, all changes are cataloged on GitHub in the form of closed (completed) pull
 requests which remain on the GitHub website for the lifetime of the repository.
 Configuration status control requires that code can be accounted for prior to
 being incorporated into the baseline and changes that are ``proposed and approved,
