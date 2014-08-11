@@ -48,7 +48,7 @@ of computational tools pertinent to nuclear engineering analysis and
 simulations. The capabilities of PyNE include canonical nuclide and reaction
 naming conventions, material handling, nuclear data and cross-section reading,
 mesh operations, and physics-code-specific capabilities. 
-Users can utilize PyNE code as a component within their own software to simplify complex tasks
+Users can use PyNE code as a component within their own software to simplify complex tasks
 such as radiation shielding calculations \cite{Biondo2014}.
 
 PyNE is cognizant of
@@ -68,8 +68,8 @@ specification (or requirements), design, implementation, verification, and maint
 Each stage must be 
 completed and reviewed before continuing on to the next stage. The waterfall 
 model has been shown to be very effective for large, technical projects.
-However, with the advent of distributed version control as well as physically 
-and organizationally disparate development teams came the rise in popularity
+However, with the advent of distributed version control as well as physically- 
+and organizationally-disparate development teams came the rise in popularity
 of \emph{agile} development \cite{larman2004agile}. The overarching principle 
 of the agile strategy is to have a short iteration cycle so that the software
 may evolve and respond quickly to changing needs and use cases.
@@ -86,9 +86,8 @@ less than required for waterfall strategies.  Agile mechanisms allow for develop
 to focus on what is interesting or useful to them on an as-needed basis.
 Toolkits or library projects (rather than simulators or user interfaces) are 
 particularly ripe for agile development. A well-designed toolkit should be 
-modular in nature which allows for parallel streams of development.  
-PyNE follows an agile development strategy as much out of necessity as it
-is an ideological fit.  Regardless of the development strategy, nuclear code
+modular in nature, which allows for parallel streams of development.  
+PyNE follows an agile development strategy as much out of necessity as out of ideological fit.  Regardless of the development strategy, nuclear code
 must adhere to the highest standards of quality.
 
 Organizations seeking to comply with NQA-1-2008/NQA-1a-2009 can use any portion
@@ -111,7 +110,7 @@ open source, community-developed code is written, reviewed, tested, and
 documented in a manner compliant with regulatory standards. The requirements of
 ASME-1-2008/ASME-1a-2009 are addressed explicitly. The process for declaring
 PyNE code fully compliant is discussed. These efforts make the PyNE code base suitable
-to a larger subset of the nuclear engineering community.
+for a larger subset of the nuclear engineering community.
 
 \section{PyNE Software Development Practices}
 
@@ -128,7 +127,7 @@ rendered documentation, which includes a user's guide, developer's guide, style
 guide, theory manual, and application programming interface (API) documentation.
 PyNE also has user and developer mailing lists for questions, discussion, and feedback.
 
-In order to make changes (e.g.\ new features, documentation improvements, and
+In order to make changes (e.g., new features, documentation improvements, and
 bug fixes), developers must first make changes in their own versions of the
 repository (a \emph{fork} in GitHub terminology) and then issue a GitHub \emph{pull
 request} accompanied by a description of the changes. A pull request
@@ -191,11 +190,11 @@ binaries after a successful nightly build and test execution.
 
 \subsubsection{PyNE's Implementation}
 
-PyNE utilizes the Build and Test Lab (BaTLab) \cite{batlab_2014} as its platform for automatically 
+PyNE uses the Build and Test Lab (BaTLab) \cite{batlab_2014} as its platform for automatically 
 building and testing software. BaTLab provides the basic tools required to
 install a project and its dependencies, test a project, and return any built
 products. PyNE builds and tests both the nightly builds and CI using
-Ubuntu 12.04 and MacOS 10.8 and Batlab supports many other platforms which could be utilized by PyNE.
+Ubuntu 12.04 and MacOS 10.8, and Batlab supports many other platforms that could be used by PyNE.
 
 %\begin{table}[ht]
 %  \begin{center}
@@ -241,7 +240,7 @@ Ubuntu 12.04 and MacOS 10.8 and Batlab supports many other platforms which could
 %  \end{center}
 %\end{table}
 
-PyNE uses BaTLab's services directly for its nightly testing. Scripts were
+PyNE uses BaTLab's services directly for nightly testing. Scripts were
 developed that---each night---install PyNE's dependencies, download the current version
 of PyNE's \texttt{develop} branch, install PyNE, and run all tests in the PyNE
 code base. Upon completion, the PyNE developer mailing list is notified in case of
@@ -252,10 +251,10 @@ must communicate with PyNE's repository management service, GitHub, and a build
 and test service. There exist a number of CI services, such as TravisCI
 \cite{travis_2014}; however, many have limitations in either their number and
 type of supported platforms or constrained total building and testing time. PyNE
-utilizes Polyphemus \cite{polyphemus_2014}, a plugin-based CI service that can
-connect with any supported front end (e.g. GitHub) and back end (e.g. BaTLab).
+uses Polyphemus \cite{polyphemus_2014}, a plugin-based CI service that can
+connect with any supported front end (e.g., GitHub) and back end (e.g., BaTLab).
 
-The PyNE development team runs a Polyphemus server that utilizes its BaTLab
+The PyNE development team runs a Polyphemus server that uses its BaTLab
 scripts to build and test all proposed patches to PyNE's \texttt{develop}
 branch. A patch proposal is initiated via GitHub's pull request
 interface. The Polyphemus server is then notified, causing the launch of a
@@ -309,12 +308,12 @@ documentation must address \emph{configuration identification}, \emph{configurat
 control}, and \emph{configuration status control}. Configuration identification
 requires that each version of the code can be uniquely identified and the
 difference between versions can be ascertained. In PyNE, all code, tests, and
-documentation are version controlled with Git which fully and automatically 
+documentation are version controlled with Git, which fully and automatically 
 supports these
 capabilities. Configuration change control is documentation of the changes to
 software baselines including the rational for the change and appropriate
 verification. In PyNE, all changes are cataloged on GitHub in the form of closed (completed) pull
-requests which remain on the GitHub website for the lifetime of the repository.
+requests that remain on the GitHub website for the lifetime of the repository.
 Configuration status control requires that code can be accounted for prior to
 being incorporated into the baseline and changes that are ``proposed and approved,
 but not implemented'' are documented \cite{add}. This is accomplished by the fact that all
@@ -347,7 +346,7 @@ developer(s).
 
 Section 301: ``Procured Software and Acquired Service'' does not apply to PyNE,
 though PyNE does rely on code from other open source projects. Use of this code
-is contingent with compliance with Section 302: ``Otherwise Acquired Software.''
+is contingent upon compliance with Section 302: ``Otherwise Acquired Software.''
 Within PyNE, this must be done on a case-by-case basis. Some portions of PyNE
 have no dependencies, while other portions may require code---in varying capacity---from a multitude of
 sources of various project sizes and types.
@@ -391,7 +390,7 @@ another script for use, the user is warned that the code is not fully
 compliant. As modules are developed to a logical point of completion, necessary
 documentation will be completed and import warnings will be removed. 
 This documentation will itemize the requirements of NQA-1-2008/NQA-1a-2009,
-explain how they were met, and will then require independent approval from a
+explain how they are met, and will then require independent approval from a
 member of the PyNE development team.
 
 \section{Conclusion}
