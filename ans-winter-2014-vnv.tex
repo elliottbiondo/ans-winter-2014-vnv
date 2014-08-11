@@ -85,7 +85,7 @@ different institutions, or unfunded. This is because the overhead is much
 less than required for waterfall strategies.  Agile mechanisms allow for developers
 to focus on what is interesting or useful to them on an as-needed basis.
 Toolkits or library projects (rather than simulators or user interfaces) are 
-particularly ripe for agile development. A well designed toolkit should be 
+particularly ripe for agile development. A well-designed toolkit should be 
 modular in nature which allows for parallel streams of development.  
 PyNE follows an agile development strategy as much out of necessity as it
 is an ideological fit.  Regardless of the development strategy, nuclear code
@@ -140,9 +140,9 @@ In the formal review process, another developer who did not participate in the w
 reviews the changes line-by-line, verifying the changes are (1) consistent with
 the requester's description and (2) compliant with the PyNE
 developer's guide and style guide. In addition, the reviewer must
-ensure that all unit tests pass and that
-any new features implemented in the pull request are supported by appropriate unit
-tests. Continuous Integration (CI)---explained below---assists in this process.
+ensure that all pre-existing unit tests pass and that
+any new features implemented in the pull request are supported by additional appropriate unit
+tests. Continuous Integration (CI)---explained below---assists developers in this process.
 The review process tends to be iterative, where requesters update their pull
 requests in response to the criticism of the reviewer. Once the reviewer or
 reviewers are satisfied, the pull request is accepted, and the newest version of the
@@ -160,10 +160,10 @@ user chooses to update their installation.
 PyNE uses a branching
 development strategy, where the \texttt{develop} branch corresponds to the
 actively developed and updated code base.
-With the \texttt{develop} branch changing so frequently, it is important to maintain confidence that all tests pass on this baseline.
+With the \texttt{develop} branch changing so frequently, it is important for developers to ensure that all tests pass on this baseline. 
 In addition to human verification by code review, the PyNE
-workflow includes both nightly testing and CI to
-guarantee that the code base is consistently and constantly tested.
+development workflow includes both nightly testing and CI to
+guarantee that the code base is consistently and constantly tested. These practices only apply to the main PyNE repository, not a user's local copy.
 
 The practice of Continuous Integration is a well-known software engineering
 practice first conceived by Beck and Jefferies \cite{beck1998extreme} that
@@ -191,7 +191,7 @@ binaries after a successful nightly build and test execution.
 
 \subsubsection{PyNE's Implementation}
 
-PyNE utilizes the Build and Test Lab (BaTLab) \cite{batlab_2014} as its platform for 
+PyNE utilizes the Build and Test Lab (BaTLab) \cite{batlab_2014} as its platform for automatically 
 building and testing software. BaTLab provides the basic tools required to
 install a project and its dependencies, test a project, and return any built
 products. PyNE builds and tests both the nightly builds and CI using
@@ -319,8 +319,8 @@ Configuration status control requires that code can be accounted for prior to
 being incorporated into the baseline and changes that are ``proposed and approved,
 but not implemented'' are documented \cite{add}. This is accomplished by the fact that all
 changes to the baseline come from pull requests from developer forks, which are
-version controlled in the same fashion as the baseline. In addition, GitHub
-provides an \emph{issue} feature, which documents pending changes.
+version controlled in the same fashion as the baseline and can be viewed publicly on GitHub. In addition, GitHub
+provides an \emph{issue} feature, which documents pending changes. If users make modifications to their local versions of PyNE, they are responsible for the configuration management associated with the changes.
 
 
 \subsection{NQA-1a-2009 Part II: Subpart 2.7}
