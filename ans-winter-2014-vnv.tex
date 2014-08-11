@@ -120,7 +120,7 @@ The PyNE workflow is centered around the Git~\cite{git_2014} distributed version
 and additional features provided by the GitHub repository hosting service.
 The \texttt{develop} and \texttt{master} branches of this repository represent
 a software baseline: a collection of software that has gone through the review and
-approval process and cannot be changed without going though an agreed-upon, formal change process.
+approval process and cannot be changed without going through an agreed-upon, formal change process.
 All PyNE code, tests, and documentation are stored in a public
 repository on GitHub. The PyNE website (\texttt{http://pyne.io}) is home to the
 rendered documentation, which includes a user's guide, developer's guide, style
@@ -162,7 +162,7 @@ actively developed and updated code base.
 With the \texttt{develop} branch changing so frequently, it is important for developers to ensure that all tests pass on this baseline. 
 In addition to human verification by code review, the PyNE
 development workflow includes both nightly testing and CI to
-guarantee that the code base is consistently and constantly tested. These practices only apply to the main PyNE repository, not a user's local copy.
+guarantee that the code base is consistently and constantly tested. These practices only apply to the main PyNE repository on GitHub, not a user's local copy.
 
 The practice of Continuous Integration is a well-known software engineering
 practice first conceived by Beck and Jefferies \cite{beck1998extreme} that
@@ -318,7 +318,7 @@ Configuration status control requires that code can be accounted for prior to
 being incorporated into the baseline and changes that are ``proposed and approved,
 but not implemented'' are documented \cite{add}. This is accomplished by the fact that all
 changes to the baseline come from pull requests from developer forks, which are
-version controlled in the same fashion as the baseline and can be viewed publicly on GitHub. In addition, GitHub
+version controlled in the same fashion as the baseline and can be viewed publicly on GitHub. GitHub
 provides an \emph{issue} feature, which documents pending changes. If users make modifications to their local versions of PyNE, they are responsible for the configuration management associated with the changes.
 
 
