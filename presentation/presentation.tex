@@ -9,37 +9,6 @@
 \usepackage{wrapfig}
 \usepackage{graphicx}
 
-\usepackage{tikz}
-\usetikzlibrary{shapes.arrows}
-\tikzset{
-    myarrow/.style={
-        draw,
-        fill=orange,
-        single arrow,
-        minimum height=4.5ex,
-        single arrow head extend=1ex
-    }
-}
-\tikzset{
-    mydoublearrow/.style={
-        draw,
-        fill=orange,
-        double arrow,
-        minimum height=10.5ex,
-        single arrow head extend=1ex
-    }
-}
-
-\newcommand{\arrowup}{%
-\tikz [baseline=-0.5ex]{\node [myarrow,rotate=90] {};}
-}
-\newcommand{\arrowdown}{%
-\tikz [baseline=-1ex]{\node [myarrow,rotate=-90] {};}
-}
-\newcommand{\doublearrow}{%
-\tikz [baseline=-1ex]{\node [mydoublearrow,rotate=0] {};}
-}
-
 \begin{document}
 \newcommand*{\alphabet}{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz}
 \newlength{\highlightheight}
@@ -99,6 +68,9 @@
 Trans-institutional, open source project
 Nuclear Science and engineering analysis and similations
 
+For the most part PyNE is a library, used in the same way that LAPACK or BLAS
+is used for linear algebra.
+
 27 contributors, 21 with over 1000 lines of code/tests/documentation.
 Top 20 "trending 
 Common Python iterface
@@ -109,10 +81,40 @@ In the top 25 "trending" C++ repositories on GitHub.com
 \begin{frame}[fragile]
 \frametitle{The PyNE Toolkit}
 
+Core functionality:
+\begin{itemize}
+\item{Nuclide/reaction naming}
+\item{Material handling}
+\item{Mesh generation and operation}
+\item{Cross section interface}
+\item{Physics code support (MCNP5, Serpent, ALARA, ORIGEN 2.2)}
+\item{Nuclear data (ACE, ENDF, ENSDF, CCCC, NJOY)}
+\end{itemize}
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{My work within PyNE}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item{\texttt{mcnp}}
+\item{\texttt{mesh}}
+\item{\texttt{material} }
+\item{\texttt{alara}}
+\item{\texttt{dagmc}}
+\item{\texttt{source sampling}}
+\item{\texttt{variance reduction}}
+\end{itemize}
+\end{column}
+\end{columns}
+
+
+
+\cite{Biondo2014}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -130,8 +132,8 @@ In the top 25 "trending" C++ repositories on GitHub.com
 \end{column}
 \begin{column}{0.5\textwidth}
 The NRC \cite{NRC} endorses the American Society of Mechical Engineers (ASME)
-NQA-1-2008 standard with the NQA-1a-2008 addenum for the licensing of power
-plants and reprocessing facilities.
+NQA-1-2008 \cite{nqa} standard with the NQA-1a-2009 \cite{add} addenum for the 
+design and construction of power plants and reprocessing facilities.
 \end{column}
 \end{columns}
 
@@ -140,6 +142,23 @@ plants and reprocessing facilities.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
 \frametitle{Motivation}
+
+Part II
+Subpart 2.7 Section 302, “Otherwise Acquired Software.”
+This section provides provisions for the use of “freeware”
+that “has not been previously approved under a program
+consistent with [the NQA-1 standard]”
+
+Verify it yourself!
+
+Some activities within industry and national labs
+
+Remove the potential documentation burden
+
+How do you know any of it is write -- we want a documented process
+
+PyNE developers have an interest in ensuring code is robust, well-documented,
+and easy to use.
 
 \end{frame}
 
@@ -153,7 +172,7 @@ plants and reprocessing facilities.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
-\frametitle{The Waterfall method}
+\frametitle{The Waterfall method \cite{waterfall}}
 \centerline{\includegraphics[width=0.8\textwidth]{figures/waterfall.pdf}}
 Figure from \cite{waterfall_wiki}
 \end{frame}
@@ -174,6 +193,36 @@ Figure from \cite{waterfall_wiki}
 \begin{frame}
 \frametitle{More concrete requirements}
 
+Part I: “Requirements for Quality Assurance Programs for
+Nuclear Facilities,
+
+Pars. 801.1-801.5:
+\begin{enumerate}
+\item{Requirements - the scope of the capabilities implemented by the work.}
+\item{Software design - the mathematical and computational methodologies employed to meet the requirements.}
+\item{Implementation - writing code using the standards and conventions agreed upon by the organization.}
+\item{Software design verification - independent confirmation that requirements are met.}
+\item{Computer program testing - comparison of results produced by the work to expected or known results.}
+\end{enumerate}
+
+configuration identification - identify each version of the code and the difference between them
+configuration change control - document changes to the baseline as well as justifiction/verification
+configuration status control - accounted for prior to being incorporated into the baseline and changes that are “proposed and approved, but not implemented” are documented \cite{add}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Part II}
+Part II: “Quality Assurance Requirements for Facility Applications”
+
+Otherwise Required Software
+
+Reporting bug fixes, corrective action.
+Security requirements
+operations requirements
+Documentations of standards, conventions, and work practices
+System tools and system software
+
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -184,11 +233,31 @@ Figure from \cite{waterfall_wiki}
 \section{QA within PyNE}
 
 \begin{frame}
+\frametitle{QA within PyNE}
+This is a developer's perspective -- users simily run their local unit tests.
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
 \frametitle{Applicability of NQA-1}
+
+end-user application
+
+Does physics occur? no physics in parsing and MCNP output file.
+
+
+Part II Subpart 2.7 Section 302, “Otherwise Acquired Software.”
+
+“freeware” that “has not been previously
+approved under a program consistent with [the NQA-1 standard]”
+
+Mapping our development process to NQA-1.
 
 \end{frame}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
 \frametitle{Challenges}
 
@@ -197,54 +266,118 @@ Figure from \cite{waterfall_wiki}
    \begin{itemize}
    \item{Undergraduates through tenured profesors.}
    \item{Varying levels of software development experience.}
-   \item{Spare time vs. funded work.}
+   \item{Spare time vs. funded work -- effort.}
    \item{Research vs. production level.}
    \end{itemize}
-\item{Agile Software Development}
+\item{Agile Software Development \cite{larman2004agile}}
+\end{itemize}
+
+Software baseline
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Documentation}
+user manual
+theory manual
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Version Control}
+
+\cite{git}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Pull Requests}
+
+Developers create there own ``fork'', make changes there, and the requests that the changes get applied the baseline.
+
+Formal review process by someone who did not write the code.
+
+iterative process (pic)
+I've had people I've never met before review my code.
+
+~300 pull requests so far -- permitted saved 
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Requirements for Pull Requests}
+In order to be accepted:
+\begin{itemize}
+\item{Unit tests that cover any new features.}
+\item{All preexisting}
+\item{Inline documentation}
+\item{Format compliant with the PyNE Style guide.}
 \end{itemize}
 
 \end{frame}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Version Control}
+\frametitle{Nightly testing Continuous Integration}
+
+Nightly testing -- install PyNE's dependies, install PyNE, run the tests.
+- PyNE mailing list is notified in the case of any failures.
+
+Build and Test Lab (BatLab)
+
+Ubuntu 12, Scientific Linux 6, Mac OSX 8, Ubuntu 10 with Python 3.
+
+Continuous integration:
+
+BatLab and GitHub connected with Polyphemus server
+
+
+The automatic building and testing of code upon reciveing a pull request.
+
+\cite{beck1998extreme}
+\cite{batlab_2014}
+\cite{polyphemus_2014}
+
 \end{frame}
 
-\begin{frame}
-\frametitle{Pull Requests}
-\end{frame}
 
-\begin{frame}
-\frametitle{Requirements for Pull Requests}
-In order to be accepted:
-
-\end{frame}
-
-
-
-\begin{frame}
-\frametitle{Continuous Integration}
-\end{frame}
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{The PyNE QA standard}
+
+Currently applied to indiviual modules.
+
 Everything heretofor has been the bare minimum to be accpeted into PyNE
+
+The module has a theory manual entry that describes or cites all non-trivial mathematics and/or physics that occur within a module, and also lists the assumptions and limitations of the module.
+
+The module is fully unit tested, with test coverage that spans the entire set of capabilities described in the theory manual. If the expected results of unit tests require non-trivial calculations, sample calculations should be provided in the theory manual. In other words, any numbers that appear in the unit tests must be reproducible.
+
+The module has a user manual entry that describes how to use its functionality within the design basis.
+
+If modules contain significant physics (e.g. transport, transmutation), the module must be benchmarked against experimental results, with appropriate uncertainty and sensitivity analysis. In addition, regression tests must be incorporated into the CI.
+
+When removal of an import guard is proposed in a pull-request, both the requester and reviewer should be prepared to justify the decision to merge, in the event that the module falls under scrutiny.
+
 \end{frame}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Work to date}
 
 Ratified Quality Assurance
 One module fully complaint
-Major topic at the PyNE 3 day Hack-a-ton at Berkeley this weekend.
+Major topic at the PyNE 3 day Hack-a-thon at Berkeley this weekend.
 
 \end{frame}
 
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
 \frametitle{Acknowledgements}
 
