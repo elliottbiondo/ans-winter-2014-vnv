@@ -8,6 +8,37 @@
 \usepackage{anyfontsize}
 \usepackage{wrapfig}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.arrows}
+\tikzset{
+    myarrow/.style={
+        draw,
+        fill=orange,
+        single arrow,
+        minimum height=2.5ex,
+        single arrow head extend=0.5ex
+    }
+}
+\tikzset{
+    mydoublearrow/.style={
+        draw,
+        fill=orange,
+        double arrow,
+        minimum height=10.5ex,
+        single arrow head extend=1ex
+    }
+}
+
+\newcommand{\arrowup}{%
+\tikz [baseline=-0.5ex]{\node [myarrow,rotate=90] {};}
+}
+\newcommand{\arrowdown}{%
+\tikz [baseline=-1ex]{\node [myarrow,rotate=-90] {};}
+}
+\newcommand{\doublearrow}{%
+\tikz [baseline=-1ex]{\node [mydoublearrow,rotate=0] {};}
+}
+
 
 \begin{document}
 \newcommand*{\alphabet}{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz}
@@ -58,29 +89,39 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Background}
+\section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
 \frametitle{The PyNE Toolkit}
 
-Trans-institutional, open source project
-Nuclear Science and engineering analysis and similations
+\centerline{\bf Python for Nuclear Engineering:}
+A trans-institutional, open source project for nuclear science and engineering analysis and similations.
 
-For the most part PyNE is a library, used in the same way that LAPACK or BLAS
-is used for linear algebra.
+\centerline{\includegraphics[width=3cm]{figures/pyne_icon_small.png}}
 
-27 contributors, 21 with over 1000 lines of code/tests/documentation.
-Top 20 "trending 
-Common Python iterface
-In the top 25 "trending" C++ repositories on GitHub.com
+\begin{itemize}
+\item{A library of tools that can accomplish c}
+\item{All code has a common Python interface}
+\begin{itemize}
+\item{A majority of code is written in C++ and wrapped with Python.}
+\item{At one of GitHub.com's Top 25 ``trending'' C++ projects.}
+\item{To date: 27 contributors, 21 with over 1000 lines of code/tests/documentation}
+\end{itemize}
+\end{itemize}
+
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
 \frametitle{The PyNE Toolkit}
 
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\includegraphics[width=\textwidth]{figures/pyne_splash.png}
+\end{column}
+\begin{column}{0.5\textwidth}
 Core functionality:
 \begin{itemize}
 \item{Nuclide/reaction naming}
@@ -90,6 +131,8 @@ Core functionality:
 \item{Physics code support (MCNP5, Serpent, ALARA, ORIGEN 2.2)}
 \item{Nuclear data (ACE, ENDF, ENSDF, CCCC, NJOY)}
 \end{itemize}
+\end{column}
+\end{columns}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,9 +140,8 @@ Core functionality:
 \frametitle{My work within PyNE}
 
 \begin{columns}
-\begin{column}{0.5\textwidth}
-\end{column}
-\begin{column}{0.5\textwidth}
+\begin{column}{0.4\textwidth}
+Mesh-based shutdown dose rate estimation for fusion energy systems \cite{Biondo2014}.
 \begin{itemize}
 \item{\texttt{mcnp}}
 \item{\texttt{mesh}}
@@ -108,32 +150,48 @@ Core functionality:
 \item{\texttt{dagmc}}
 \item{\texttt{source sampling}}
 \item{\texttt{variance reduction}}
+\item{\texttt{r2s module}}
 \end{itemize}
 \end{column}
+\begin{column}{0.6\textwidth}
+\includegraphics[width=3.8cm]{figures/n_flux.png}
+\vspace{0.2cm}
+{ \arrowdown} {\small Activation} \\
+\centerline{\includegraphics[width=4.2cm]{figures/phtn_src.png}}
+\centerline{\hspace{0.5cm} \arrowdown {\small Photon Transport}} 
+\vspace{0.2cm}
+\framebox[1.1\width]{Shutdown Dose Rate}
+\end{column}
 \end{columns}
-
-
-
-\cite{Biondo2014}
-
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
 \frametitle{Quality assurance}
 
+\begin{itemize}
+\item{PyNE developers have an interest in ensuring code is correct, robust,
+well-documented, and easy to use.}
+\item{Some activities within National Labs and industry require code that compliant with NRC regulatory standards.}
+\begin{itemize}
+\item{Increase potential user-base.}
+\end{itemize}
+\end{itemize}
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-\frametitle{Quality assurance for nuclear engineering}
+\frametitle{Quality assurance in nuclear engineering}
 
 \begin{columns}[T]
 \begin{column}{0.5\textwidth}
 \includegraphics[width=\textwidth]{figures/nqa-1-2008.png}
 \end{column}
 \begin{column}{0.5\textwidth}
-The NRC \cite{NRC} endorses the American Society of Mechical Engineers (ASME)
-NQA-1-2008 \cite{nqa} standard with the NQA-1a-2009 \cite{add} addenum for the 
-design and construction of power plants and reprocessing facilities.
+\begin{itemize}
+\item{American Society of Mechical Engineers (ASME)
+NQA-1-2008 \cite{nqa} standard and NQA-1a-2009 \cite{add} addendum}
+\item{Endorsed by the NRC for design and construction of power plants and reprocessing facilities.}
+\end{itemize}
 \end{column}
 \end{columns}
 
@@ -141,24 +199,13 @@ design and construction of power plants and reprocessing facilities.
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-\frametitle{Motivation}
+\frametitle{The bottomline}
 
-Part II
-Subpart 2.7 Section 302, “Otherwise Acquired Software.”
-This section provides provisions for the use of “freeware”
-that “has not been previously approved under a program
-consistent with [the NQA-1 standard]”
+\begin{enumerate}
+\item{What software development practices are enacted within PyNE for QA?}
+\item{How do these practices map to the criteria set forth in NQA-1?}
+\end{enumerate}
 
-Verify it yourself!
-
-Some activities within industry and national labs
-
-Remove the potential documentation burden
-
-How do you know any of it is write -- we want a documented process
-
-PyNE developers have an interest in ensuring code is robust, well-documented,
-and easy to use.
 
 \end{frame}
 
@@ -241,6 +288,15 @@ This is a developer's perspective -- users simily run their local unit tests.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Applicability of NQA-1}
+
+
+Part II
+Subpart 2.7 Section 302, “Otherwise Acquired Software.”
+This section provides provisions for the use of “freeware”
+that “has not been previously approved under a program
+consistent with [the NQA-1 standard]”
+
+Verify it yourself!
 
 end-user application
 
