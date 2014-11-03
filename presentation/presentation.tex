@@ -102,7 +102,7 @@ A trans-institutional, open source project for nuclear science and engineering a
 \centerline{\includegraphics[width=3cm]{figures/pyne_icon_small.png}}
 
 \begin{itemize}
-\item{A library of tools that can accomplish c}
+\item{A library of tools, designed to be components of larger applications.}
 \item{All code has a common Python interface}
 \begin{itemize}
 \item{A majority of code is written in C++ and wrapped with Python.}
@@ -199,7 +199,7 @@ NQA-1-2008 \cite{nqa} standard and NQA-1a-2009 \cite{add} addendum}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-\frametitle{The bottomline}
+\frametitle{The bottom line}
 
 \begin{enumerate}
 \item{What software development practices are enacted within PyNE for QA?}
@@ -224,53 +224,49 @@ NQA-1-2008 \cite{nqa} standard and NQA-1a-2009 \cite{add} addendum}
 Figure from \cite{waterfall_wiki}
 \end{frame}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{The gist}
+\frametitle{NQA-1 Part I}
 
-\begin{itemize}
-\item{Use the Water Method}
-\item{Document every step}
-\end{itemize}
+{\bf Part I: ``Requirements for Quality Assurance Programs for Nuclear Facilities''}
 
+Requirement 3 Section 801:
+\begin{enumerate}
+\item{\alert{Requirements} - the scope of the capabilities implemented by the work.}
+\item{\alert{Software design} - the mathematical and computational methodologies employed to meet the requirements.}
+\item{\alert{Implementation} - writing code using the standards and conventions agreed upon by the organization.}
+\item{\alert{Software design verification} - independent confirmation that requirements are met.}
+\item{\alert{Computer program testing} - comparison of results produced by the work to expected or known results.}
+\end{enumerate}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{More concrete requirements}
+\frametitle{NQA-1 Part I (cont)}
 
-Part I: “Requirements for Quality Assurance Programs for
-Nuclear Facilities,
-
-Pars. 801.1-801.5:
-\begin{enumerate}
-\item{Requirements - the scope of the capabilities implemented by the work.}
-\item{Software design - the mathematical and computational methodologies employed to meet the requirements.}
-\item{Implementation - writing code using the standards and conventions agreed upon by the organization.}
-\item{Software design verification - independent confirmation that requirements are met.}
-\item{Computer program testing - comparison of results produced by the work to expected or known results.}
-\end{enumerate}
-
-configuration identification - identify each version of the code and the difference between them
-configuration change control - document changes to the baseline as well as justifiction/verification
-configuration status control - accounted for prior to being incorporated into the baseline and changes that are “proposed and approved, but not implemented” are documented \cite{add}
-
+Requirement 2 Section 802
+\begin{itemize}
+\item{\alert{configuration identification} - identify each version of the code and the difference between them.}
+\item{\alert{configuration change control} - document changes to the baseline as well as justifiction/verification.}
+\item{\alert{configuration status control} - accounted for prior to being incorporated into the baseline and changes that are “proposed and approved, but not implemented” are documented \cite{add}.}
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Part II}
-Part II: “Quality Assurance Requirements for Facility Applications”
+Part II: ``Quality Assurance Requirements for Facility Applications''
 
-Otherwise Required Software
+\begin{itemize}
+\item{Section 301: Otherwise Required Software - Additional QA is required for software dependencies ``not previously approved under a program consistant with this standard''.}
+\item{Section 204: \alert{Problem Reporting} and \alert{Corrective Action} - must have procedure for reporting and correcting bugs}.
+\item{Section 500: \alert{Standards}, \alert{Conventions}, and Other \alert{Work practices} - must be documented.}
+\end{itemize}
 
-Reporting bug fixes, corrective action.
-Security requirements
-operations requirements
-Documentations of standards, conventions, and work practices
-System tools and system software
-
-
+Only relevant to end user applications:
+\begin{itemize}
+\item{Section 401-404 - Security Requirements}
+\item{Section 405 - Operation Requirements}
+\item{Section 600 - Software Tools and System Software}
+\end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -281,7 +277,7 @@ System tools and system software
 
 \begin{frame}
 \frametitle{QA within PyNE}
-This is a developer's perspective -- users simily run their local unit tests.
+{\bf Forewarning} - this is a developer's perspective -- the knowledge of the activities discussed here not prerequite for users.
 \end{frame}
 
 
@@ -289,26 +285,19 @@ This is a developer's perspective -- users simily run their local unit tests.
 \begin{frame}
 \frametitle{Applicability of NQA-1}
 
-
-Part II
-Subpart 2.7 Section 302, “Otherwise Acquired Software.”
-This section provides provisions for the use of “freeware”
-that “has not been previously approved under a program
-consistent with [the NQA-1 standard]”
-
-Verify it yourself!
-
-end-user application
-
-Does physics occur? no physics in parsing and MCNP output file.
+Part II Subpart 2.7 Section 302, “Otherwise Acquired Software.” provides
+provisions for the use of “freeware” that “has not been previously approved
+under a program consistent with [the NQA-1 standard]”
 
 
-Part II Subpart 2.7 Section 302, “Otherwise Acquired Software.”
-
-“freeware” that “has not been previously
-approved under a program consistent with [the NQA-1 standard]”
-
-Mapping our development process to NQA-1.
+\begin{itemize}
+\item{PyNE as an organization will never need official NQA-1 compliance.}
+    \begin{itemize}
+    \item{Unless we decide to build a power plant!}
+    \end{itemize}
+\item{More likely PyNE code may be component within an end-user application used for activities requiring compliance.}
+\item{It is worth being consitant with this standard, so this Subpart could be evoked. Minimum, the QA burden for third parties is lessened.}
+\end{itemize}
 
 \end{frame}
 
@@ -318,31 +307,47 @@ Mapping our development process to NQA-1.
 \frametitle{Challenges}
 
 \begin{itemize}
-\item{PyNE developer are a diverse bunch}:
+\item{PyNE code is heterogeneous:}
+    \begin{itemize}
+    \item{Requirements: Research vs. production level.}
+    \item{``Library'' code vs. end-user application}
+    \item{Some modules involve physics, other decidingly do not.}
+    \end{itemize}
+\item{PyNE developers are a diverse bunch}:
    \begin{itemize}
-   \item{Undergraduates through tenured profesors.}
-   \item{Varying levels of software development experience.}
-   \item{Spare time vs. funded work -- effort.}
-   \item{Research vs. production level.}
+   \item{Experience: Undergraduates through tenured profesors.}
+   \item{Ability: Varying levels of software development experience.}
+   \item{Effort: Spare time vs. funded work.}
    \end{itemize}
-\item{Agile Software Development \cite{larman2004agile}}
 \end{itemize}
 
-Software baseline
 \end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Documentation}
-user manual
-theory manual
+\frametitle{Agile Software Development}
+
+Each feature is like a mini-waterfall method.
+
+\cite{larman2004agile}
+
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Version Control}
 
-\cite{git}
+All code, tests and documentation is version controlled using Git \cite{git}.
+
+Git (like Mercurial, SVN, or CVS) is software that allows users to:
+\begin{itemize}
+\item{Assign a unique identifier to a version of a codebase (e.g. a snapshot of the code after a developer makes changes.) \alert{Configuration identification}}
+\item{Compare, merge, or revert to different versions (and much more!)}
+\item{Permanently store all versions of code in a \emph{repository} (\alert{configuration change control})}
+\end{itemize}
+
+The PyNE Git repository is hosted on GitHub.com, this can be thought of as the
+``master copy'' and is accessible to the general public (like everything). 
 
 \end{frame}
 
@@ -350,14 +355,17 @@ theory manual
 \begin{frame}
 \frametitle{Pull Requests}
 
-Developers create there own ``fork'', make changes there, and the requests that the changes get applied the baseline.
+Developers create their own copy of the reposition, a``fork''
+(\alert{configuration status control}), make changes there, and the requests
+that the changes get applied the baseline.
 
 Formal review process by someone who did not write the code.
 
 iterative process (pic)
-I've had people I've never met before review my code.
 
 ~300 pull requests so far -- permitted saved 
+
+
 
 \end{frame}
 
@@ -366,10 +374,11 @@ I've had people I've never met before review my code.
 \frametitle{Requirements for Pull Requests}
 In order to be accepted:
 \begin{itemize}
-\item{Unit tests that cover any new features.}
-\item{All preexisting}
+\item{Explaination and justification for the changes (\alert{Requirements}).}
+\item{Unit tests that cover any new features (\alert{Computer program testing}).}
+\item{All preexisting unit tests pass.}
 \item{Inline documentation}
-\item{Format compliant with the PyNE Style guide.}
+\item{Format compliant with the PyNE Style guide \alert{implimentation}.}
 \end{itemize}
 
 \end{frame}
@@ -400,14 +409,39 @@ The automatic building and testing of code upon reciveing a pull request.
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Infastructure}
+\begin{itemize}
+\item{Website: \url{pyne.io}}
+\begin{itemize}
+\item{Developer's guide}
+\item{User's guide}
+\item{Theory manual - still under developement.}
+\end{itemize}
+\item{User mailing list}
+\item{Developer mailing list}
+\end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{The PyNE QA standard}
+
+\begin{itemize}
+\item{Everything heretofor has been the bare minimum to be accpeted into PyNE.}
+\item{What does it take for code within PyNE to be decleared ``QA complaint.''}
+\end{itemize}
+
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{The PyNE QA standard}
 
 Currently applied to indiviual modules.
-
-Everything heretofor has been the bare minimum to be accpeted into PyNE
 
 The module has a theory manual entry that describes or cites all non-trivial mathematics and/or physics that occur within a module, and also lists the assumptions and limitations of the module.
 
@@ -420,7 +454,6 @@ If modules contain significant physics (e.g. transport, transmutation), the modu
 When removal of an import guard is proposed in a pull-request, both the requester and reviewer should be prepared to justify the decision to merge, in the event that the module falls under scrutiny.
 
 \end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
