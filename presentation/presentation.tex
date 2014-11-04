@@ -141,7 +141,7 @@ Core functionality:
 
 \begin{columns}
 \begin{column}{0.4\textwidth}
-Mesh-based shutdown dose rate estimation for fusion energy systems \cite{Biondo2014}.
+Mesh-based shutdown dose rate estimation for fusion energy systems \cite{Biondo2014} and corresponding hybrid MC variance reduction.
 \begin{itemize}
 \item{\texttt{mcnp}}
 \item{\texttt{mesh}}
@@ -150,7 +150,7 @@ Mesh-based shutdown dose rate estimation for fusion energy systems \cite{Biondo2
 \item{\texttt{dagmc}}
 \item{\texttt{source sampling}}
 \item{\texttt{variance reduction}}
-\item{\texttt{r2s module}}
+\item{\texttt{r2s}}
 \end{itemize}
 \end{column}
 \begin{column}{0.6\textwidth}
@@ -199,16 +199,14 @@ NQA-1-2008 \cite{nqa} standard and NQA-1a-2009 \cite{add} addendum}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-\frametitle{The bottom line}
+\frametitle{Objective}
 
 \begin{enumerate}
 \item{What software development practices are enacted within PyNE for QA?}
 \item{How do these practices map to the criteria set forth in NQA-1?}
 \end{enumerate}
 
-
 \end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -309,26 +307,48 @@ under a program consistent with [the NQA-1 standard]”
 \begin{itemize}
 \item{PyNE code is heterogeneous:}
     \begin{itemize}
-    \item{Requirements: Research vs. production level.}
+    \item{Research vs. production level.}
     \item{``Library'' code vs. end-user application}
-    \item{Some modules involve physics, other decidingly do not.}
+    \item{Some modules involve physics, other decidingly do not}
     \end{itemize}
 \item{PyNE developers are a diverse bunch}:
    \begin{itemize}
-   \item{Experience: Undergraduates through tenured profesors.}
-   \item{Ability: Varying levels of software development experience.}
-   \item{Effort: Spare time vs. funded work.}
+   \item{Experience: Undergraduates through tenured proffesors}
+   \item{Ability: Varying levels of software development experience}
+   \item{Effort: Spare time vs. funded work}
    \end{itemize}
 \end{itemize}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
+\frametitle{Agile Software Development\cite{larman2004agile}}
+
+\begin{itemize}
+\item{All developers access a reliable software baseline, make changes, and request that the changes become the new baseline.}
+\item{Each change is analogous a mini-waterfall method.}
+\end{itemize}
+
+\centerline{\includegraphics[width=0.8\textwidth]{figures/agile.png}}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
 \frametitle{Agile Software Development}
 
-Each feature is like a mini-waterfall method.
-
-\cite{larman2004agile}
+\begin{itemize}
+\item{Better for projects that are:}
+\begin{itemize}
+\item{Decentralized}
+\item{On-going}
+\end{itemize}
+\item{Made possible by:}
+    \begin{itemize}
+    \item{Version control}
+    \item{Unit tests}
+    \item{Continuous integration}
+    \end{itemize}
+\end{itemize}
 
 \end{frame}
 
@@ -341,7 +361,8 @@ All code, tests and documentation is version controlled using Git \cite{git}.
 
 Git (like Mercurial, SVN, or CVS) is software that allows users to:
 \begin{itemize}
-\item{Assign a unique identifier to a version of a codebase (e.g. a snapshot of the code after a developer makes changes.) \alert{Configuration identification}}
+\item{Assign a unique identifier to a version of a codebase (e.g. a snapshot of 
+      the code after a developer makes changes.) \alert{Configuration identification}}
 \item{Compare, merge, or revert to different versions (and much more!)}
 \item{Permanently store all versions of code in a \emph{repository} (\alert{configuration change control})}
 \end{itemize}
@@ -355,16 +376,24 @@ The PyNE Git repository is hosted on GitHub.com, this can be thought of as the
 \begin{frame}
 \frametitle{Pull Requests}
 
-Developers create their own copy of the reposition, a``fork''
-(\alert{configuration status control}), make changes there, and the requests
-that the changes get applied the baseline.
-
-Formal review process by someone who did not write the code.
-
-iterative process (pic)
-
-~300 pull requests so far -- permitted saved 
-
+\begin{columns}
+\begin{column}{0.5\textwidth}
+    \begin{itemize}
+    \item{Developers create their own copy of the reposition, a``fork''
+    (\alert{configuration status control}), make changes there, and the requests
+    that the changes get applied the baseline.}
+    \visible<2->{\item{Formal review process by someone who did not write the code (\alert{Software design verification}).}}
+    \visible<3->{\item{Iterative process}}
+    \visible<4->{\item{Record or the pull request is perminatly saved -- almost 300 requests so far}}
+    \end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+    \only<1>{\includegraphics[width=\textwidth]{figures/PR_prop.png}}
+    \only<2>{\includegraphics[width=\textwidth]{figures/PR_review.png}}
+    \only<3>{\includegraphics[width=\textwidth]{figures/PR_iterative.png}}
+    \only<4>{\includegraphics[width=\textwidth]{figures/PR_closed.png}}
+\end{column}
+\end{columns}
 
 
 \end{frame}
@@ -372,14 +401,19 @@ iterative process (pic)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Requirements for Pull Requests}
+
+
 In order to be accepted:
+
 \begin{itemize}
 \item{Explaination and justification for the changes (\alert{Requirements}).}
 \item{Unit tests that cover any new features (\alert{Computer program testing}).}
 \item{All preexisting unit tests pass.}
 \item{Inline documentation}
-\item{Format compliant with the PyNE Style guide \alert{implimentation}.}
+\item{Format compliant with the PyNE Style guide (\alert{implimentation}).}
 \end{itemize}
+
+
 
 \end{frame}
 
