@@ -242,22 +242,23 @@ Requirement 3 Section 801:
 \begin{frame}
 \frametitle{NQA-1 Part I (cont)}
 
-Requirement 2 Section 802
+Requirement 2 Section 802:
 \begin{itemize}
-\item{\alert{configuration identification} - identify each version of the code and the difference between them.}
-\item{\alert{configuration change control} - document changes to the baseline as well as justification/verification.}
-\item{\alert{configuration status control} - accounted for prior to being incorporated into the baseline and changes that are “proposed and approved, but not implemented” are documented \cite{add}.}
+\item{\alert{Configuration identification} - identify each version of the code and the difference between them.}
+\item{\alert{Configuration change control} - document changes to the baseline as well as justification/verification.}
+\item{\alert{Configuration status control} - accounted for prior to being incorporated into the baseline and changes that are “proposed and approved, but not implemented” are documented \cite{add}.}
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Part II}
-Part II: ``Quality Assurance Requirements for Facility Applications''
+
+{\bf Part II: ``Quality Assurance Requirements for Facility Applications''}
 
 \begin{itemize}
-\item{Section 301: Otherwise Required Software - Additional QA is required for software dependencies ``not previously approved under a program consistent with this standard''.}
-\item{Section 204: \alert{Problem Reporting} and \alert{Corrective Action} - must have procedure for reporting and correcting bugs}.
-\item{Section 500: \alert{Standards}, \alert{Conventions}, and Other \alert{Work practices} - must be documented.}
+\item{Section 301: \alert{Otherwise Acquired software} - Additional QA is required for software dependencies ``not previously approved under a program consistent with this standard''}
+\item{Section 204: \alert{Problem reporting} and \alert{corrective Action}}
+\item{Section 500: \alert{Standards}, \alert{conventions}, and other \alert{work practices}}
 \end{itemize}
 
 %Only relevant to end user applications:
@@ -269,25 +270,33 @@ Part II: ``Quality Assurance Requirements for Facility Applications''
 
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{QA within PyNE}
-
-\begin{frame}
-\frametitle{QA within PyNE}
-
-{\bf Forewarning} - this is a developer's perspective -- the knowledge of the
-activities discussed here not prerequisite for users.
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}
+%\frametitle{Forewarning}
+%
+%\begin{itemize}
+%\item{This is a developer's perspective.}
+%\item{Knowledge of the activities discussed here not prerequisite for users.}
+%\end{itemize}
+%
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Applicability of NQA-1}
 
-Part II Subpart 2.7 Section 302, “Otherwise Acquired Software.” provides
-provisions for the use of ``freeware'' that ``has not been previously approved
-under a program consistent with [the NQA-1 standard]''
 
+\alert{Otherwise acquired software} section - provisions for the use of
+``freeware'' that ``has not been previously approved under a program consistent
+with [the NQA-1 standard]''
 
 \begin{itemize}
 \item{PyNE as an organization will never need official NQA-1 compliance.}
@@ -295,7 +304,10 @@ under a program consistent with [the NQA-1 standard]''
     \item{Unless we decide to build a power plant!}
     \end{itemize}
 \item{More likely PyNE code may be component within an end-user application used for activities requiring compliance.}
-\item{It is worth being constant with this standard, so this Subpart could be evoked. Minimum, the QA burden for third parties is lessened.}
+\item{It is worth being constant with this standard, so this Subpart could be evoked.}
+    \begin{itemize}
+    \item{QA burden for third parties is lessened.}
+    \end{itemize}
 \end{itemize}
 
 \end{frame}
@@ -314,7 +326,7 @@ under a program consistent with [the NQA-1 standard]''
     \end{itemize}
 \item{PyNE developers are a diverse bunch}:
    \begin{itemize}
-   \item{Experience: Undergraduates through tenured professors}
+   \item{Experience: Undergraduates through professors}
    \item{Ability: Varying levels of software development experience}
    \item{Effort: Spare time vs. funded work}
    \end{itemize}
@@ -327,7 +339,7 @@ under a program consistent with [the NQA-1 standard]''
 
 \begin{itemize}
 \item{All developers access a reliable software baseline, make changes, and request that the changes become the new baseline.}
-\item{Each change is analogous a mini-waterfall method.}
+\item{Each change is analogous to a mini-waterfall method.}
 \end{itemize}
 
 \centerline{\includegraphics[width=0.8\textwidth]{figures/agile.png}}
@@ -358,18 +370,17 @@ under a program consistent with [the NQA-1 standard]''
 \begin{frame}
 \frametitle{Version Control}
 
-All code, tests and documentation is version controlled using Git \cite{git}.
-
+All code, tests and documentation is version controlled using Git \cite{git}. \\
+\vspace{0.3cm}
 Git (like Mercurial, SVN, or CVS) is software that allows users to:
 \begin{itemize}
-\item{Assign a unique identifier to a version of a code base (e.g. a snapshot of 
-      the code after a developer makes changes.) \alert{Configuration identification}}
-\item{Compare, merge, or revert to different versions (and much more!)}
+\item{Assign a unique identifier to a version of a code base, e.g. a snapshot of 
+      the code after a developer makes changes (\alert{configuration identification})}
+\item{Compare, merge, or revert to different versions}
 \item{Permanently store all versions of code in a \emph{repository} (\alert{configuration change control})}
 \end{itemize}
-
-The PyNE Git repository is hosted on GitHub.com, this can be thought of as the
-``master copy'' and is accessible to the general public (like everything). 
+\vspace{0.3cm}
+The PyNE Git repository is hosted on GitHub.com.
 
 \end{frame}
 
@@ -380,12 +391,12 @@ The PyNE Git repository is hosted on GitHub.com, this can be thought of as the
 \begin{columns}
 \begin{column}{0.5\textwidth}
     \begin{itemize}
-    \item{Developers create their own copy of the reposition, a``fork''
+    \item{Developers create their own copy of the repository, a``fork''
     (\alert{configuration status control}), make changes there, and the requests
     that the changes get applied the baseline.}
-    \visible<2->{\item{Formal review process by someone who did not write the code (\alert{Software design verification}).}}
+    \visible<2->{\item{Review by someone who did not write the code (\alert{software design verification}).}}
     \visible<3->{\item{Iterative process}}
-    \visible<4->{\item{Record or the pull request is permanently saved (\alert(configuration change control)) -- almost 300 requests so far}}
+    \visible<4->{\item{Permanently saved (\alert{configuration change control})}}
     \end{itemize}
 \end{column}
 \begin{column}{0.5\textwidth}
@@ -403,7 +414,6 @@ The PyNE Git repository is hosted on GitHub.com, this can be thought of as the
 \begin{frame}
 \frametitle{Requirements for Pull Requests}
 
-
 In order to be accepted:
 
 \begin{itemize}
@@ -416,37 +426,67 @@ In order to be accepted:
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Continuous Integration \cite{beck1998extreme}}
 
+\begin{itemize}
+\item{Upon receiving a pull request, a developer's code is built and tested on a remote server.}
+    \begin{itemize}
+    \item{4 \emph{platforms}:}
+        \begin{itemize}
+        \item{Ubuntu 12}
+        \item{Mac OSX8}
+        \item{Scientific Linux 6}
+        \item{Ubuntu 10 with Python 3}
+        \end{itemize}
+    \end{itemize}
+\item{UW Build and Test Lab (BaTLab) \cite{batlab_2014}}
+\item{Integrated with GitHub using Polyphemus \cite{polyphemus_2014}}
+\end{itemize}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Continuous Integreation}
-Continuous integration:
+\frametitle{Continuous integration}
 
-BatLab and GitHub connected with Polyphemus server
+The view from GitHub:
+\only<1>{\centerline{\includegraphics[width=\textwidth]{figures/CI_wait.png}}}
+\only<2>{\centerline{\includegraphics[width=\textwidth]{figures/CI_pass.png}}}
+\only<3>{\centerline{\includegraphics[width=\textwidth]{figures/CI_fail.png}}\vspace{0.5cm}}
 
-The automatic building and testing of code upon receiving a pull request.
+When a pull request is initiated, BaTLab automatically:
+\begin{enumerate}
+\visible<1->{
+\item{Installs PyNE's dependencies}
+\item{Builds and installs PyNE with the developer's changes.}
+\item{Runs all unit tests}
+}
+\visible<2->{
+\item{Reports results}
+}
+\end{enumerate}
 
-\cite{beck1998extreme}
-\cite{batlab_2014}
-\cite{polyphemus_2014}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Continuous integration}
 
-\only<1-2>{\centerline{\includegraphics[width=\textwidth]{figures/CI_wait.png}}}
-\only<2>{A remote job is launched...}
-\only<3>{\centerline{\includegraphics[width=\textwidth]{figures/CI_pass.png}}}
-\only<4>{\centerline{\includegraphics[width=\textwidth]{figures/CI_fail.png}}}
+Detailed output:
+\centerline{\includegraphics[height=0.8\textheight]{figures/CI_detail.png}}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 \frametitle{Nightly Testing}
 
-Nightly testing -- install PyNE's dependencies, install PyNE, run the tests.
-- PyNE mailing list is notified in the case of any failures.
+\begin{itemize}
+\item{Same procedure as CI, but occurs every 24 hours.}
+\item{PyNE mailing list is notified in the case of any failures}
+\item{Will come in handy when long regression tests are added}
+\end{itemize}
 
-Build and Test Lab (BatLab)
 
-Ubuntu 12, Scientific Linux 6, Mac OSX 8, Ubuntu 10 with Python 3.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -498,17 +538,17 @@ Ubuntu 12, Scientific Linux 6, Mac OSX 8, Ubuntu 10 with Python 3.
 \begin{frame}
 \frametitle{The PyNE QA standard}
 
-Declearing modules QA compliant:
+Declaring modules QA compliant:
 \begin{enumerate}
 \item{Theory manual entry}:
     \begin{itemize}
     \item{Explains/cites all mathematics/physics that occur}
-    \item{Assumptions/limatiations}
+    \item{Assumptions/limitations}
     \item{Sample calculations for numbers that appear unit tests.}
     \end{itemize}
 \item{Unit test coverage spans the entire set of capabilities described in the theory manual}
 \item{User manual entry that describes how to use its functionality within the design basis}
-\item{For modules with signicant physics (e.g. transport, transmutation):}
+\item{For modules with significant physics (e.g. transport, transmutation):}
     \begin{itemize}
     \item{benchmarking experimental results}
     \item{appropriate uncertainty and sensitivity analysis}
@@ -524,7 +564,7 @@ Declearing modules QA compliant:
 
 \begin{itemize}
 \item{Ratified QA plan}
-\item{One module fully complaint (\texttt{pyne.nucname}).}
+\item{One module fully compliant (\texttt{pyne.nucname}).}
 \item{Major topic at the PyNE 3 day Hack-a-thon at UC-Berkeley this weekend.}
 \end{itemize}
 
@@ -535,13 +575,13 @@ Declearing modules QA compliant:
 
 \begin{itemize}
 \item{The software development practices within PyNE accomplish the same goals as NQA-1.}
-\item{If some party were to use PyNE as a component of NQA-1 compliant code, must of the QA work will already be done for the portions of the codebase that meet the PyNE QA standard.}
+\item{If some party were to use PyNE as a QA-compliant component of NQA-1 compliant code, much of the QA work will already be done.}
 \end{itemize}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-\frametitle{Acknowledgements}
+\frametitle{Acknowledgments}
 
 \includegraphics[height=2cm]{figures/NRClogo.png} \\
 
