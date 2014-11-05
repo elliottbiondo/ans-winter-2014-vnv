@@ -431,6 +431,11 @@ The automatic building and testing of code upon receiving a pull request.
 \cite{batlab_2014}
 \cite{polyphemus_2014}
 
+\only<1-2>{\centerline{\includegraphics[width=\textwidth]{figures/CI_wait.png}}}
+\only<2>{A remote job is launched...}
+\only<3>{\centerline{\includegraphics[width=\textwidth]{figures/CI_pass.png}}}
+\only<4>{\centerline{\includegraphics[width=\textwidth]{figures/CI_fail.png}}}
+
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -495,19 +500,21 @@ Ubuntu 12, Scientific Linux 6, Mac OSX 8, Ubuntu 10 with Python 3.
 
 Declearing modules QA compliant:
 \begin{enumerate}
-\item{}
-\end{eanumerate}
-
-
-The module has a theory manual entry that describes or cites all non-trivial mathematics and/or physics that occur within a module, and also lists the assumptions and limitations of the module.
-
-The module is fully unit tested, with test coverage that spans the entire set of capabilities described in the theory manual. 
-sample calculations should be provided in the theory manual. 
-
-The module has a user manual entry that describes how to use its functionality within the design basis.
-
-If modules contain significant physics (e.g. transport, transmutation), the module must be benchmarked against experimental results, with appropriate uncertainty and sensitivity analysis. In addition, regression tests must be incorporated into the CI.
-
+\item{Theory manual entry}:
+    \begin{itemize}
+    \item{Explains/cites all mathematics/physics that occur}
+    \item{Assumptions/limatiations}
+    \item{Sample calculations for numbers that appear unit tests.}
+    \end{itemize}
+\item{Unit test coverage spans the entire set of capabilities described in the theory manual}
+\item{User manual entry that describes how to use its functionality within the design basis}
+\item{For modules with signicant physics (e.g. transport, transmutation):}
+    \begin{itemize}
+    \item{benchmarking experimental results}
+    \item{appropriate uncertainty and sensitivity analysis}
+    \item{regression tests must be incorporated into the CI}
+    \end{itemize}
+\end{enumerate}
 
 \end{frame}
 
