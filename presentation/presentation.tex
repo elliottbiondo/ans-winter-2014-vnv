@@ -483,7 +483,7 @@ Ubuntu 12, Scientific Linux 6, Mac OSX 8, Ubuntu 10 with Python 3.
 \item{Almost everything heretofore has been the bare minimum to be accepted into PyNE.}
 \item{What does it take for code within PyNE to be declared ``QA complaint.''}
     \begin{itemize}
-    \item{Fill in gaps.}
+    \item{Fill in gaps between pull request criteria and NQA-1 criteria.}
     \end{itemize}
 \end{itemize}
 
@@ -493,17 +493,21 @@ Ubuntu 12, Scientific Linux 6, Mac OSX 8, Ubuntu 10 with Python 3.
 \begin{frame}
 \frametitle{The PyNE QA standard}
 
-Currently applied to individual modules.
+Declearing modules QA compliant:
+\begin{enumerate}
+\item{}
+\end{eanumerate}
+
 
 The module has a theory manual entry that describes or cites all non-trivial mathematics and/or physics that occur within a module, and also lists the assumptions and limitations of the module.
 
-The module is fully unit tested, with test coverage that spans the entire set of capabilities described in the theory manual. If the expected results of unit tests require non-trivial calculations, sample calculations should be provided in the theory manual. In other words, any numbers that appear in the unit tests must be reproducible.
+The module is fully unit tested, with test coverage that spans the entire set of capabilities described in the theory manual. 
+sample calculations should be provided in the theory manual. 
 
 The module has a user manual entry that describes how to use its functionality within the design basis.
 
 If modules contain significant physics (e.g. transport, transmutation), the module must be benchmarked against experimental results, with appropriate uncertainty and sensitivity analysis. In addition, regression tests must be incorporated into the CI.
 
-When removal of an import guard is proposed in a pull-request, both the requester and reviewer should be prepared to justify the decision to merge, in the event that the module falls under scrutiny.
 
 \end{frame}
 
