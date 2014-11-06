@@ -94,7 +94,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-\frametitle{The PyNE Toolkit}
+\frametitle{The PyNE toolkit}
 
 \centerline{\bf Python for Nuclear Engineering:}
 A trans-institutional, open source project for nuclear science and engineering analysis and simulations.
@@ -107,7 +107,8 @@ A trans-institutional, open source project for nuclear science and engineering a
 \begin{itemize}
 \item{A majority of code is written in C++ and wrapped with Python.}
 \item{At one time: On GitHub.com's Top 25 ``trending'' C++ projects.}
-\item{To date: 27 contributors, 21 with over 1000 lines of code/tests/documentation}
+\item{27 contributors}
+\item{21 contributors with over 1000 lines of code/tests/documentation}
 \end{itemize}
 \end{itemize}
 
@@ -115,7 +116,7 @@ A trans-institutional, open source project for nuclear science and engineering a
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]
-\frametitle{The PyNE Toolkit}
+\frametitle{The PyNE toolkit}
 
 \begin{columns}
 \begin{column}{0.5\textwidth}
@@ -172,8 +173,10 @@ Mesh-based shutdown dose rate estimation for fusion energy systems \cite{Biondo2
 \item{PyNE developers have an interest in ensuring code is correct, robust,
 well-documented, and easy to use}
 \item{Some activities within national labs and industry require code that is compliant with NRC regulatory standards}
+\item{It is worth understanding/compling with NQA-1:}
 \begin{itemize}
 \item{Increase potential user-base}
+\item{Better product}
 \end{itemize}
 \end{itemize}
 
@@ -211,15 +214,15 @@ NQA-1-2008 \cite{nqa} standard and NQA-1a-2009 \cite{add} addendum}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{NQA-1 Standards}
+\section{NQA-1 standard}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}[fragile]
-\frametitle{The Waterfall method \cite{waterfall}}
+\frametitle{The Waterfall method}
 \centerline{\includegraphics[width=0.8\textwidth]{figures/waterfall.pdf}}
-Figure from \cite{waterfall_wiki}
+Waterfall method \cite{waterfall}, figure from \cite{waterfall_wiki}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -240,7 +243,7 @@ Requirement 3 Section 801:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{NQA-1 Part I (cont)}
+\frametitle{NQA-1 Part I (cont.)}
 
 Requirement 2 Section 802:
 \begin{itemize}
@@ -332,8 +335,9 @@ with [the NQA-1 standard]''
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Agile Software Development\cite{larman2004agile}}
+\frametitle{Agile software development}
 
+Agile Software Development \cite{larman2004agile}:
 \begin{itemize}
 \item{All developers access a reliable software baseline, make changes, and request that the changes become the new baseline}
 \item{Each change is analogous to a mini-waterfall method}
@@ -344,7 +348,7 @@ with [the NQA-1 standard]''
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Agile Software Development}
+\frametitle{Agile software development}
 
 \begin{itemize}
 \item{Better for projects that are:}
@@ -365,7 +369,7 @@ with [the NQA-1 standard]''
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Version Control}
+\frametitle{Version control}
 
 All code, tests, and documentation are version controlled using Git \cite{git} \\
 \vspace{0.3cm}
@@ -383,20 +387,20 @@ The PyNE Git repository is hosted on GitHub.com
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Pull Requests}
+\frametitle{Pull requests}
 
 \begin{columns}
 \begin{column}{0.5\textwidth}
 
 Developers
     \begin{itemize}
-    \item Create their own copy of the repository,
-    \item generate a``fork'' (\alert{configuration status control}), 
-    \item make changes there, and 
-    \item request that the changes get applied the baseline
+    \item Create their own copy of the repository -- a``fork'' (\alert{configuration status control})
+    \item Make changes
+    \item Request that the changes get applied the baseline
     \end{itemize}
 \end{column}
 \begin{column}{0.5\textwidth}
+    \centerline{example:}
     \includegraphics[width=\textwidth]{figures/PR_prop.png}
 \end{column}
 \end{columns}
@@ -405,7 +409,7 @@ Developers
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Pull Requests}
+\frametitle{Pull requests}
 
 \begin{columns}
 \begin{column}{0.5\textwidth}
@@ -428,7 +432,7 @@ Other developers/reviewers
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Requirements for Pull Requests}
+\frametitle{Requirements for pull requests}
 
 In order to be accepted:
 
@@ -444,7 +448,9 @@ In order to be accepted:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Continuous Integration \cite{beck1998extreme}}
+\frametitle{Continuous integration}
+
+Continuous Integration \cite{beck1998extreme}:
 
 \begin{itemize}
 \item{Upon receiving a pull request, a developer's code is built and tested on a remote server}
@@ -494,7 +500,7 @@ Detailed output:
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Nightly Testing}
+\frametitle{Nightly testing}
 
 \begin{itemize}
 \item{Same procedure as CI, but occurs every 24 hours}
@@ -591,7 +597,7 @@ Declaring modules QA compliant:
 
 \begin{itemize}
 \item{The software development practices within PyNE accomplish the same goals as NQA-1}
-\item{If some party were to use PyNE as a QA-compliant component of NQA-1 compliant code, much of the QA work will already be done}
+\item{In the future, if some party were to use a QA-compliant portion of PyNE for NQA-1 compliant code, much of the QA work will already be done}
 \end{itemize}
 
 \end{frame}
