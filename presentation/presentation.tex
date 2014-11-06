@@ -99,7 +99,7 @@
 \centerline{\bf Python for Nuclear Engineering:}
 A trans-institutional, open source project for nuclear science and engineering analysis and simulations.
 
-\centerline{\includegraphics[width=3cm]{figures/pyne_icon_small.png}}
+\centerline{\includegraphics[width=2cm]{figures/pyne_icon_small.png}}
 
 \begin{itemize}
 \item{A library of tools, designed to be components of larger applications.}
@@ -170,10 +170,10 @@ Mesh-based shutdown dose rate estimation for fusion energy systems \cite{Biondo2
 
 \begin{itemize}
 \item{PyNE developers have an interest in ensuring code is correct, robust,
-well-documented, and easy to use.}
-\item{Some activities within National Labs and industry require code that is compliant with NRC regulatory standards.}
+well-documented, and easy to use}
+\item{Some activities within national labs and industry require code that is compliant with NRC regulatory standards}
 \begin{itemize}
-\item{Increase potential user-base.}
+\item{Increase potential user-base}
 \end{itemize}
 \end{itemize}
 
@@ -190,7 +190,7 @@ well-documented, and easy to use.}
 \begin{itemize}
 \item{American Society of Mechanical Engineers (ASME)
 NQA-1-2008 \cite{nqa} standard and NQA-1a-2009 \cite{add} addendum}
-\item{Endorsed by the NRC for design and construction of power plants and reprocessing facilities.}
+\item{Endorsed by the NRC for design and construction of power plants and reprocessing facilities}
 \end{itemize}
 \end{column}
 \end{columns}
@@ -320,15 +320,15 @@ with [the NQA-1 standard]''
 \begin{itemize}
 \item{PyNE code is heterogeneous:}
     \begin{itemize}
-    \item{Research vs. production level.}
-    \item{``Library'' code vs. end-user applications}
+    \item{Research vs. production level}
+    \item{``Library'' code vs.\ end-user applications}
     \item{Some modules involve physics, others do not}
     \end{itemize}
 \item{PyNE developers are a diverse bunch}:
    \begin{itemize}
    \item{Experience: Undergraduates through professors}
-   \item{Ability: Varying levels of software development experience}
-   \item{Effort: Spare time vs. funded work}
+   \item{Ability: Varying levels of software development background}
+   \item{Effort: Spare time vs.\ funded work}
    \end{itemize}
 \end{itemize}
 
@@ -370,11 +370,11 @@ with [the NQA-1 standard]''
 \begin{frame}
 \frametitle{Version Control}
 
-All code, tests and documentation is version controlled using Git \cite{git}. \\
+All code, tests, and documentation are version controlled using Git \cite{git}. \\
 \vspace{0.3cm}
 Git (like Mercurial, SVN, or CVS) is software that allows users to:
 \begin{itemize}
-\item{Assign a unique identifier to a version of a code base, e.g. a snapshot of 
+\item{Assign a unique identifier to a version of a code base, e.g., a snapshot of 
       the code after a developer makes changes (\alert{configuration identification})}
 \item{Compare, merge, or revert to different versions}
 \item{Permanently store all versions of code in a \emph{repository} (\alert{configuration change control})}
@@ -390,23 +390,42 @@ The PyNE Git repository is hosted on GitHub.com.
 
 \begin{columns}
 \begin{column}{0.5\textwidth}
+
+Developers
     \begin{itemize}
-    \item{Developers create their own copy of the repository, a``fork''
-    (\alert{configuration status control}), make changes there, and requests
-    that the changes get applied the baseline.}
-    \visible<2->{\item{Review by someone who did not write the code (\alert{software design verification}).}}
-    \visible<3->{\item{Iterative process}}
-    \visible<4->{\item{Permanently saved (\alert{configuration change control})}}
+    \item Create their own copy of the repository,
+    \item generate a``fork'' (\alert{configuration status control}), 
+    \item make changes there, and 
+    \item request that the changes get applied the baseline.
     \end{itemize}
 \end{column}
 \begin{column}{0.5\textwidth}
-    \only<1>{\includegraphics[width=\textwidth]{figures/PR_prop.png}}
-    \only<2>{\includegraphics[width=\textwidth]{figures/PR_review.png}}
-    \only<3>{\includegraphics[width=\textwidth]{figures/PR_iterative.png}}
-    \only<4>{\includegraphics[width=\textwidth]{figures/PR_closed.png}}
+    \includegraphics[width=\textwidth]{figures/PR_prop.png}
 \end{column}
 \end{columns}
 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Pull Requests}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+
+Other developers/reviewers
+    \begin{itemize}
+    \item{Review by someone who did not write the code (\alert{software design verification}).}
+    \visible<2->{\item{Iterative process}}
+    \visible<3->{\item{Permanently saved (\alert{configuration change control})}}
+    \end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+    \only<1>{\includegraphics[width=\textwidth]{figures/PR_review.png}}
+    \only<2>{\includegraphics[width=\textwidth]{figures/PR_iterative.png}}
+    \only<3>{\includegraphics[width=\textwidth]{figures/PR_closed.png}}
+\end{column}
+\end{columns}
 
 \end{frame}
 
