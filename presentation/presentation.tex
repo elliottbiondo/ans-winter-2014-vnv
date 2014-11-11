@@ -97,18 +97,17 @@
 \frametitle{The PyNE toolkit}
 
 \centerline{\bf Python for Nuclear Engineering:}
-A trans-institutional, open source project for nuclear science and engineering analysis and simulations.
+A trans-institutional, open source project for nuclear science and engineering analysis and simulations
 
 \centerline{\includegraphics[width=2cm]{figures/pyne_icon_small.png}}
 
 \begin{itemize}
-\item{A library of tools, designed to be components of larger applications.}
+\item{A library of tools, designed to be components of larger applications}
 \item{All code has a common Python interface}
 \begin{itemize}
 \item{A majority of code is written in C++ and wrapped with Python.}
 \item{At one time: On GitHub.com's Top 25 ``trending'' C++ projects.}
-\item{27 contributors}
-\item{21 contributors with over 1000 lines of code/tests/documentation}
+\item{27 contributors to date}
 \end{itemize}
 \end{itemize}
 
@@ -173,7 +172,7 @@ Mesh-based shutdown dose rate estimation for fusion energy systems \cite{Biondo2
 \item{PyNE developers have an interest in ensuring code is correct, robust,
 well-documented, and easy to use}
 \item{Some activities within national labs and industry require code that is compliant with NRC regulatory standards}
-\item{It is worth understanding/compling with NRC regulatory standards:}
+\item{It is worth understanding/complying with NRC regulatory standards:}
 \begin{itemize}
 \item{Increase potential user-base}
 \item{Better product}
@@ -249,7 +248,7 @@ Requirement 2 Section 802:
 \begin{itemize}
 \item{\alert{Configuration identification} - identify each version of the code and the difference between them}
 \item{\alert{Configuration change control} - document changes to the baseline as well as justification/verification}
-\item{\alert{Configuration status control} - accounted for prior to being incorporated into the baseline and changes that are “proposed and approved, but not implemented” are documented \cite{add}}
+\item{\alert{Configuration status control} - changes are accounted for prior to being incorporated into the baseline \cite{add}}
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -321,14 +320,14 @@ with [the NQA-1 standard]''
 \item{PyNE code is heterogeneous:}
     \begin{itemize}
     \item{Research vs.\ production level}
-    \item{``Library'' code vs.\ end-user applications}
+    \item{Library code vs.\ end-user applications}
     \item{Some modules involve physics, others do not}
     \end{itemize}
 \item{PyNE developers are a diverse bunch}:
    \begin{itemize}
-   \item{Experience: Undergraduates through professors}
-   \item{Ability: Varying levels of software development background}
-   \item{Effort: Spare time vs.\ funded work}
+   \item{Experience: undergraduates through professors}
+   \item{Ability: varying software development backgrounds}
+   \item{Effort: spare time vs.\ funded work}
    \end{itemize}
 \end{itemize}
 
@@ -337,13 +336,13 @@ with [the NQA-1 standard]''
 \begin{frame}
 \frametitle{Agile software development}
 
-Agile Software Development \cite{larman2004agile}:
+Agile software development \cite{larman2004agile}:
 \begin{itemize}
-\item{All developers access a reliable software baseline, make changes, and request that the changes become the new baseline}
+\item{All developers access a software baseline, make changes, and request that the changes are incorporated into the baseline}
 \item{Each change is analogous to a mini-waterfall method}
 \end{itemize}
 
-\centerline{\includegraphics[width=0.8\textwidth]{figures/agile.png}}
+\centerline{\includegraphics[width=0.75\textwidth]{figures/agile.png}}
 
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -354,7 +353,7 @@ Agile Software Development \cite{larman2004agile}:
 \item{Better for projects that are:}
     \begin{itemize}
     \item{Decentralized}
-    \item{On-going}
+    \item{Ongoing}
     \end{itemize}
 \item{Made possible by:}
     \begin{itemize}
@@ -450,7 +449,7 @@ In order to be accepted:
 \begin{frame}
 \frametitle{Continuous integration}
 
-Continuous Integration \cite{beck1998extreme}:
+Continuous integration \cite{beck1998extreme}:
 
 \begin{itemize}
 \item{Upon receiving a pull request, a developer's code is built and tested on a remote server}
@@ -464,7 +463,7 @@ Continuous Integration \cite{beck1998extreme}:
         \end{itemize}
     \end{itemize}
 \item{UW Build and Test Lab (BaTLab) \cite{batlab_2014}}
-\item{Integrated with GitHub using Polyphemus \cite{polyphemus_2014}}
+\item{Integrated into GitHub using Polyphemus \cite{polyphemus_2014}}
 \end{itemize}
 \end{frame}
 
@@ -560,7 +559,7 @@ Detailed output:
 \begin{frame}
 \frametitle{The PyNE QA standard}
 
-Declaring modules QA compliant:
+Declaring modules \emph{QA compliant}:
 \begin{enumerate}
 \item{Theory manual entry}:
     \begin{itemize}
@@ -572,7 +571,7 @@ Declaring modules QA compliant:
 \item{User manual entry that describes how to use a given module}
 \item{For modules with significant physics (e.g.\ transport, transmutation):}
     \begin{itemize}
-    \item{benchmarking experimental results}
+    \item{benchmarking with experimental results}
     \item{appropriate uncertainty and sensitivity analysis}
     \item{regression tests must be incorporated into the CI}
     \end{itemize}
